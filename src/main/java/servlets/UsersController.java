@@ -51,7 +51,20 @@ public class UsersController extends HttpServlet  {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        /**.
+         * Add dispatcher whose routing our requests.
+         * All request forward to page
+         * /WEB-INF/views/UsersView.jsp
+         * .
+         */
         request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
+
+        /**.
+         * Add binding (alias) - in java "attribute"
+         * for use short path in calls.
+         */
+        request.setAttribute("users", UserStorage.getInstance().getAll());
     }
 
     @Override

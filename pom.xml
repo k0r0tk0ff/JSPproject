@@ -68,5 +68,10 @@
 		<artifactId>slf4j-simple</artifactId>
 		<version>1.7.22</version>
 	</dependency>
+      <dependency>
+          <groupId>org.apache.xbean</groupId>
+          <artifactId>xbean-reflect</artifactId>
+          <version>3.4</version>
+      </dependency>
   </dependencies>
 </project>

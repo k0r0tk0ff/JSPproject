@@ -1,5 +1,7 @@
 <%@ page import="models.User" %>
 <%@ page import="services.UserStorage" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -18,7 +20,12 @@
         <th>login</th>
         <th>email</th>
     </tr>
-    <% for (User user : UserStorage.getInstance().getAll()) {%>
+        <%-- Use binded attribute - "users", --%>
+        <%-- that contain "UserStorage.getInstance().getAll()" --%>
+        <%--     --%>
+        <%-- do not work  --%>
+        <%-- <% for (User user : (List<User>) request.getAttribute("users")) {%>  --%>
+        <% for (User user : UserStorage.getInstance().getAll()) {%>
         <tr>
             <td><%=user.getlogin()%></td>
             <td><%=user.getemail()%></td>

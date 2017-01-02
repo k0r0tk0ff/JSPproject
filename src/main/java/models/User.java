@@ -13,7 +13,6 @@ public class User {
     private static final Logger Log = getLogger(User.class);
     private String login;
     private String email;
-    private Calendar created;
 
     public User(String name, String login) {
         this.email = name;
