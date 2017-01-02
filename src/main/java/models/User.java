@@ -11,13 +11,21 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class User {
     private static final Logger Log = getLogger(User.class);
-    private String name;
     private String login;
+    private String email;
     private Calendar created;
 
     public User(String name, String login, Calendar created) {
-        this.name = name;
+        this.email = name;
         this.login = login;
         this.created = created;
+    }
+
+    public String getlogin() {
+        return this.login;
+    }
+
+    public String getemail() {
+        return this.email;
     }
 }

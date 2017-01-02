@@ -8,10 +8,6 @@ import static org.slf4j.LoggerFactory.getLogger;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 /**.
  * Class for save users.
  * @author Petr Arsentev
