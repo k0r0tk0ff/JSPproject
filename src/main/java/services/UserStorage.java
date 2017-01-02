@@ -1,10 +1,16 @@
+package services;
+
+import models.User;
+
 import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import static org.slf4j.LoggerFactory.getLogger;
+
+
+
 
 /**.
  * Class for save users.

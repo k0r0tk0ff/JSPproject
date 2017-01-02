@@ -1,24 +1,52 @@
 package servlets;
 
+/**
+ * Work with MVC`s
+ * Add controller
+ */
+import models.User;
+
+/**
+ * Work with MVC`s
+ * Add controller
+ */
+import services.UserStorage;
+
+/**
+ * Add servlet`s dependencies to programm`s logic
+ */
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
+/**
+ * Add logger to programm`s logic
+ */
+import static org.slf4j.LoggerFactory.getLogger;
+import org.slf4j.Logger;
+
+/**
+ * Add another dependencies;
+ */
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**.
- * Simple code example.
+ * Servlet for use programm
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
-
-@WebServlet("/aaa")
 public class MyServlet extends HttpServlet  {
+
+    private static final Logger Log = getLogger(MyServlet.class);
+
+    /**
+     * Add storage of users
+     */
+    private final UserStorage storage = UserStorage.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
