@@ -7,7 +7,7 @@
     <title>Title for JSP page</title>
 </head>
 <body>
-    <form action="<%=UserStorage.getInstance().add(login, email);%>" method="post">
+    <form action="<%=request.getContextPath()%>/" method="post">
     Login : <input type="text" name="login"><br/>
     Email : <input type="text" name="email"><br/>
         <input type="submit">

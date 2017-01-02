@@ -8,12 +8,12 @@
     <display-name>JSPproject</display-name>
 
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>servlets.MyServlet</servlet-class>
+        <servlet-name>UsersController</servlet-name>
+        <servlet-class>servlets.UsersController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>UsersController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

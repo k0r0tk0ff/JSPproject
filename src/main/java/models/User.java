@@ -15,10 +15,9 @@ public class User {
     private String email;
     private Calendar created;
 
-    public User(String name, String login, Calendar created) {
+    public User(String name, String login) {
         this.email = name;
         this.login = login;
-        this.created = created;
     }
 
     public String getlogin() {

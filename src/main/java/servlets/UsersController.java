@@ -39,9 +39,9 @@ import java.util.Calendar;
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
-public class MyServlet extends HttpServlet  {
+public class UsersController extends HttpServlet  {
 
-    private static final Logger Log = getLogger(MyServlet.class);
+    private static final Logger Log = getLogger(UsersController.class);
 
     /**
      * Add storage of users
@@ -49,32 +49,18 @@ public class MyServlet extends HttpServlet  {
     private final UserStorage storage = UserStorage.getInstance();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-            try {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(
-                        new SimpleDateFormat("dd-MM-yyyy")
-                        .parse(request.getParameter("create"))
-                );
-            this.storage.add(
-                    new User(
-                            request.getParameter("name"),
-                            request.getParameter("login"),
-                            cal
-                    )
-            );
-            } catch (ParseException e) {
-                Log.error("",e);
-            }
-        response.sendRedirect("/index.jsp");
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-
+        UserStorage.getInstance().add(
+            new User(request.getParameter("login"),
+                request.getParameter("email")));
+        response.sendRedirect(String.format("%s/",request.getContextPath()));
     }
 }
