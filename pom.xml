@@ -22,7 +22,21 @@
     </plugins>
   </build>
   <dependencies>
-     <dependency>
+      <!-- start for JTLS -->
+      <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+      <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+      <dependency>
+          <groupId>taglibs</groupId>
+          <artifactId>standard</artifactId>
+          <version>1.1.2</version>
+      </dependency>
+      <!-- end for JTLS -->
+      <dependency>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-war-plugin</artifactId>
   <version>3.0.0</version>
