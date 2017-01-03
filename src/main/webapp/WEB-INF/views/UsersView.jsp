@@ -14,6 +14,7 @@
         <input type="submit">
     </form>
     <br/>
+    <%--
     <table style="border: 1px solid black;" cellpadding="1" border="1">
             <tr>
                 <th>login</th>
@@ -21,11 +22,29 @@
             </tr>
         <c:forEach items="${users}" var="user">
             <tr>
-                 <td><c:out value="${user.Login}"></c:out></td>
-                 <td><c:out value="${user.Email}"></c:out></td>
+                 <td><c:out value="${user.login}"></c:out></td>
+                 <td><c:out value="${user.email}"></c:out></td>
             </tr>
         </c:forEach>
     </table>
-
+    --%>
+    <%-- work variant --%>
+    <table style="border: 1px solid black;" cellpadding="1" border="1">
+    <tr>
+        <th>login</th>
+        <th>email</th>
+    </tr>
+    <%
+    for(User user : UserStorage.getInstance().getAll()) {
+    %>
+        <tr>
+            <td><%=user.getLogin()%></td>
+            <td><%=user.getEmail()%></td>
+        </tr>
+    <%
+    }
+    %>
+    </table>
+    <%--  --%>
 </body>
 </html>

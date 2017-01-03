@@ -46,7 +46,7 @@ public class UsersController extends HttpServlet  {
     /**
      * Add storage of users
      */
-    private final UserStorage storage = UserStorage.getInstance();
+    //private final UserStorage storage = UserStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -64,7 +64,7 @@ public class UsersController extends HttpServlet  {
          * Add binding (alias) - in java "attribute"
          * for use short path in calls.
          */
-        request.setAttribute("users", this.storage.getAll());
+        request.setAttribute("users", UserStorage.getInstance().getAll());
     }
 
     @Override
