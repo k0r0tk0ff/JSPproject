@@ -64,7 +64,7 @@ public class UsersController extends HttpServlet  {
          * Add binding (alias) - in java "attribute"
          * for use short path in calls.
          */
-        request.setAttribute("users", UserStorage.getInstance().getAll());
+        request.setAttribute("users", this.storage.getAll());
     }
 
     @Override

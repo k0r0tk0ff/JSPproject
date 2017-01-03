@@ -19,11 +19,11 @@ public class User {
         this.login = login;
     }
 
-    public String getlogin() {
+    public String getLogin() {
         return this.login;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return this.email;
     }
 }
