@@ -53,6 +53,12 @@ public class UsersController extends HttpServlet  {
             throws ServletException, IOException {
 
         /**.
+         * Add binding (alias) - in java "attribute"
+         * for use short path in calls.
+         */
+        request.setAttribute("users", UserStorage.getInstance().getAll());
+
+        /**.
          * Add dispatcher whose routing our requests.
          * All request forward to page
          * /WEB-INF/views/UsersView.jsp
@@ -60,11 +66,7 @@ public class UsersController extends HttpServlet  {
          */
         request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
 
-        /**.
-         * Add binding (alias) - in java "attribute"
-         * for use short path in calls.
-         */
-        request.setAttribute("users", UserStorage.getInstance().getAll());
+
     }
 
     @Override

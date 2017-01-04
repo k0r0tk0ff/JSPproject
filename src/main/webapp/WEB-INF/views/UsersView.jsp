@@ -2,6 +2,7 @@
 <%@ page import="servlets.UsersController" %>
 <%@ page import="services.UserStorage" %>
 <%@ page import="models.User" %>
+<%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -14,7 +15,27 @@
         <input type="submit">
     </form>
     <br/>
-    <%--
+
+    <%-- work wariant
+    <table style="border: 1px solid black;" cellpadding="1" border="1">
+        <tr>
+            <th>login</th>
+            <th>email</th>
+        </tr>
+        <%
+            for(User user : (List<User>) request.getAttribute("users")) {
+        %>
+        <tr>
+            <td><%=user.getLogin()%></td>
+            <td><%=user.getEmail()%></td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+    --%>
+
+
     <table style="border: 1px solid black;" cellpadding="1" border="1">
             <tr>
                 <th>login</th>
@@ -27,8 +48,9 @@
             </tr>
         </c:forEach>
     </table>
-    --%>
-    <%-- work variant --%>
+
+
+    <%-- work variant
     <table style="border: 1px solid black;" cellpadding="1" border="1">
     <tr>
         <th>login</th>
@@ -45,6 +67,6 @@
     }
     %>
     </table>
-    <%--  --%>
+    --%>
 </body>
 </html>
