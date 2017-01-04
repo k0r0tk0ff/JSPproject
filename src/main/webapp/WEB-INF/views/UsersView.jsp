@@ -36,11 +36,14 @@
     --%>
 
 
+    <%-- if method getLogin exist,
+           jsp run user.login <==> user.getLogin --%>
     <table style="border: 1px solid black;" cellpadding="1" border="1">
             <tr>
                 <th>login</th>
                 <th>email</th>
             </tr>
+        <jsp:useBean id="users" scope="request" type="java.util.List"/>
         <c:forEach items="${users}" var="user">
             <tr>
                  <td><c:out value="${user.login}"></c:out></td>
