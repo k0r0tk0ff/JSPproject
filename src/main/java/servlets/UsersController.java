@@ -21,18 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Add logger to programm`s logic
- */
-import static org.slf4j.LoggerFactory.getLogger;
-import org.slf4j.Logger;
-
-/**
  * Add another dependencies;
  */
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**.
  * Servlet for use programm
@@ -41,9 +32,7 @@ import java.util.Calendar;
  */
 public class UsersController extends HttpServlet  {
 
-    private static final Logger Log = getLogger(UsersController.class);
-
-    /**
+     /**
      * Add storage of users
      */
     //private final UserStorage storage = UserStorage.getInstance();
