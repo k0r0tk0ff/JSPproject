@@ -22,10 +22,6 @@ public class UserStorage {
      */
     private static final UserStorage INSTANCE = new UserStorage();
 
-
-    private UserStorage() {
-    }
-
     public static UserStorage getInstance() {
         return INSTANCE;
     }
