@@ -6,12 +6,17 @@ package models;
  * site - http://job4j.ru/
  */
 public class User {
-    private String login;
-    private String email;
+    String login;
+    String email;
+    private String id;
+    private String password;
 
-    public User(String inputLogin, String inputEmail) {
-        this.email = inputEmail;
-        this.login = inputLogin;
+
+    public User(String login, String email, String id, String password) {
+        this.login = login;
+        this.email = email;
+        this.id = id;
+        this.password = password;
     }
 
     public String getLogin() {
@@ -20,5 +25,13 @@ public class User {
 
     public String getEmail() {
         return this.email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

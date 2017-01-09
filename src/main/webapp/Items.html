@@ -3,11 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            function validate() {
+                var result = false;
+                if (document.getElementsByName("name").value == null) {
+                    result = false;
+                }
+                if (!result) {
+                    alert("Pleace, correct input");
+                }
+            }
+        </script>
 </head>
 <body>
-    <div>
-        <form action="">
+    <div class="center">
+        <form action="/items" method="post" onsubmit="return validate();">
+            <input type="hidden" name="user_id">
+            Name: <input type="text" name="name"><br/>
+            Password: <input type="password" name="name"><br/>
+            Sex:
+            <input type="radio">Male
+            <input type="radio">Female<br/>
+            <select name="city">
+                <option value="Moscow">Moscow</option>
+                <option value="SPB">SPB</option>
+                <option value="Stalingrad">Stalingrad</option>
+                <option value="Krasnodar">Krasnodar</option>
+            </select>    <br/>
+            resume: <input type="file" name="agreements"><br/>
+            Description: <textarea name="description"></textarea><br/>
+            Agreements: <input type="checkbox" name="agreements"><br/>
+            <input type="submit" value="Submit">
         </form>
+    </div>
+    <br/>
+    <div class="center">
+        <table style="border: 1px solid #000000" border="1" cellpadding="1" cellspacing="1">
+        <tr>
+            <td>Login</td>
+            <td>Email</td>
+        </tr>
+        </table>
     </div>
 </body>
 </html>
