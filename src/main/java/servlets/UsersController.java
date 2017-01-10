@@ -64,7 +64,11 @@ public class UsersController extends HttpServlet  {
         response.setContentType("text/html");
         UserStorage.getInstance().add(
             new User(request.getParameter("login"),
-                request.getParameter("email")));
+                request.getParameter("email"),
+                request.getParameter("id"),
+                request.getParameter("password")
+            )
+        );
         response.sendRedirect(String.format("%s/",request.getContextPath()));
     }
 }

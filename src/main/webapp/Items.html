@@ -8,13 +8,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
             function validate() {
-                var result = false;
-                if (document.getElementsByName("name").value == null) {
+                var result = true;
+                var name = document.getElementsByName("name")[0].value;
+                if (name == '') {
                     result = false;
                 }
                 if (!result) {
-                    alert("Pleace, correct input");
+                    alert("Please, correct input");
                 }
+                return result;
             }
         </script>
 </head>
@@ -25,8 +27,8 @@
             Name: <input type="text" name="name"><br/>
             Password: <input type="password" name="name"><br/>
             Sex:
-            <input type="radio">Male
-            <input type="radio">Female<br/>
+            <input name="sex" type="radio">Male
+            <input name="sex" type="radio">Female<br/>
             <select name="city">
                 <option value="Moscow">Moscow</option>
                 <option value="SPB">SPB</option>

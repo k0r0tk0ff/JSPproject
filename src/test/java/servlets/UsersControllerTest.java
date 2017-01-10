@@ -29,10 +29,10 @@ public class UsersControllerTest {
         /**
          * Create test etalon user for compare in our test
          */
-        User user = new User ("testuser", "main@mail");
+        User user = new User ("testuser", "main@mail", "1", "root");
         UsersController usersController = new UsersController();
-        UserStorage testStorage = new UserStorage();
-        testStorage.add(user);
+       // UserStorage testStorage = new UserStorage();
+       // testStorage.add(user);
 
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -45,8 +45,8 @@ public class UsersControllerTest {
 
         usersController.doPost(request, response);
 
-        assertThat("testuser", equalTo(UserStorage.getInstance().getAll().iterator().next().getLogin()));
-        assertThat(UserStorage.getInstance().getAll().iterator().next().getLogin(), is("testuser"));
+        assertThat("root", equalTo(UserStorage.getInstance().getAll().iterator().next().getLogin()));
+        assertThat(UserStorage.getInstance().getAll().iterator().next().getLogin(), is("root"));
 
         /**.
          * Compare post`s values of response and save fields of created user.

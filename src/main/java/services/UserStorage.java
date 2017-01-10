@@ -13,13 +13,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class UserStorage {
 
-    //private final List<User> users = new ArrayList<User>();
     private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
 
     /**.
      * Use singletone conception -
      * https://habrahabr.ru/post/27108/
      */
+    public UserStorage() {
+        this.users.add(new User("root", "rootmail@mail", "1", "root"));
+    }
+
     private static final UserStorage INSTANCE = new UserStorage();
 
     public static UserStorage getInstance() {
