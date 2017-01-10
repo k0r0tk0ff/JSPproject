@@ -6,19 +6,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
-            function validate() {
-                var result = true;
-                var name = document.getElementsByName("name")[0].value;
-                if (name == '') {
-                    result = false;
-                }
-                if (!result) {
-                    alert("Please, correct input");
-                }
-                return result;
+    <script>
+        function validate() {
+            var result = true;
+            var name = document.getElementsByName("name")[0].value;
+            if (name == '') {
+                result = false;
             }
-        </script>
+            if (!result) {
+                alert("Please, correct input");
+            }
+            return result;
+            }
+
+    </script>
+    <script>
+        $(
+                $.ajax('./json', {
+                    method : 'get',
+                    complete: function(data) {
+                        var result = "<tr>" +
+                                "<td>Login</td>" +
+                                "<td>Email</td>" +
+                                "</tr>";
+                        var users = JSON.parse(data.responseText);
+                        for (var i=0; i!=users.length; ++i) {
+                            result += "<tr>" +
+                                    "<td> + users[i].login +</td>" +
+                                    "<td> + users[i].email +</td>" +
+                                    "</tr>";
+                        }
+                        var table = document.getElementById("users")
+                        table.innerHTML = result;
+                    }
+                })
+        );
+
+        function createUser () {
+            $.ajax('./json', {
+                method : 'post',
+                data : {login : document.getElementsByName("name")[0].value}
+                complete: 
+            })
+            return false;
+        }
+    </script>>
 </head>
 <body>
     <div class="center">
@@ -39,11 +71,12 @@
             Description: <textarea name="description"></textarea><br/>
             Agreements: <input type="checkbox" name="agreements"><br/>
             <input type="submit" value="Submit">
+            <input type="button" value="Ajax" onclick="return createUser">
         </form>
     </div>
     <br/>
     <div class="center">
-        <table style="border: 1px solid #000000" border="1" cellpadding="1" cellspacing="1">
+        <table id="users" style="border: 1px solid #000000" border="1" cellpadding="1" cellspacing="1">
         <tr>
             <td>Login</td>
             <td>Email</td>

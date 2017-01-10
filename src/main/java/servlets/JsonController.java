@@ -1,6 +1,7 @@
 package servlets;
 
 import models.User;
+import services.UserStorage;
 
 /**
  * Add servlet`s dependencies to programm`s logic
@@ -24,8 +25,18 @@ public class JsonController extends HttpServlet {
 
         response.setContentType("text/json");
         PrintWriter writer = new PrintWriter(response.getOutputStream());
-        writer.append("[{'login':'test2':'email':'email2'},{'login':'test2':'email':'email2'}]");
+        writer.append("[{\"login\":\"test2\":\"email\":\"email2\"}]");
         writer.flush();
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        UserStorage.getInstance().add(
+                new User(request.getParameter("login"), "",
+                        "", "")
+        );
 
     }
 
