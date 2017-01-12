@@ -21,6 +21,10 @@
 
     </script>
     <script>
+        function loadUsers () {
+
+        }
+
         $(
                 $.ajax('./json', {
                     method : 'get',
@@ -46,7 +50,7 @@
             $.ajax('./json', {
                 method : 'post',
                 data : {login : document.getElementsByName("name")[0].value}
-                complete: 
+                complete:
             })
             return false;
         }
