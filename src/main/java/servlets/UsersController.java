@@ -1,18 +1,18 @@
 package servlets;
 
-/**
+/**.
  * Work with MVC`s
  * Add controller
  */
 import models.User;
 
-/**
+/**.
  * Work with MVC`s
  * Add controller
  */
 import services.UserStorage;
 
-/**
+/**.
  * Add servlet`s dependencies to programm`s logic
  */
 import javax.servlet.ServletException;
@@ -53,7 +53,7 @@ public class UsersController extends HttpServlet  {
          * /WEB-INF/views/UsersView.jsp
          * .
          */
-        request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
 
     }
