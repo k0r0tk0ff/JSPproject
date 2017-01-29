@@ -1,11 +1,18 @@
 package models;
 
+import services.UserStorage;
+
+import static org.slf4j.LoggerFactory.getLogger;
+
 /**.
  * Class describe User`s abilities
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
 public class User {
+
+    private static final org.slf4j.Logger Log = getLogger(User.class);
+
     String login;
     String email;
     private String id;
@@ -34,4 +41,6 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+
 }

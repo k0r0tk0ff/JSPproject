@@ -2,9 +2,11 @@ package services;
 
 import models.User;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**.
  * Class for save users.
@@ -13,14 +15,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class UserStorage {
 
-    private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
+     private static final org.slf4j.Logger Log = getLogger(UserStorage.class);
+
+     private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
 
     /**.
      * Use singletone conception -
      * https://habrahabr.ru/post/27108/
      */
     public UserStorage() {
-        this.users.add(new User("root", "rootmail@mail", "1", "root"));
+        this.users.add(
+                new User("root",
+                        "rootmail@mail",
+                        "1",
+                        "root"));
     }
 
     private static final UserStorage INSTANCE = new UserStorage();
