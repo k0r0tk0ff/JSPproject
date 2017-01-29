@@ -1,7 +1,5 @@
 package models;
 
-import services.UserStorage;
-
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**.
