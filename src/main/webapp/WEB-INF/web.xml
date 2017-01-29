@@ -7,7 +7,7 @@
 
     <display-name>JSPproject</display-name>
 
-<!--    <servlet>
+    <servlet>
         <servlet-name>UsersController</servlet-name>
         <servlet-class>servlets.UsersController</servlet-class>
     </servlet>
@@ -15,7 +15,7 @@
     <servlet-mapping>
         <servlet-name>UsersController</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
 
 <!--    <servlet>
         <servlet-name>JsonController</servlet-name>

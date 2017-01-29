@@ -35,7 +35,7 @@ public class UsersController extends HttpServlet  {
      /**
      * Add storage of users
      */
-    //private final UserStorage storage = UserStorage.getInstance();
+    private final UserStorage storage = UserStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,7 +45,7 @@ public class UsersController extends HttpServlet  {
          * Add binding (alias) - in java "attribute"
          * for use short path in calls.
          */
-        request.setAttribute("users", UserStorage.getInstance().getAll());
+        request.setAttribute("users", storage.getAll());
 
         /**.
          * Add dispatcher whose routing our requests.
@@ -53,7 +53,7 @@ public class UsersController extends HttpServlet  {
          * /WEB-INF/views/UsersView.jsp
          * .
          */
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
 
 
     }
