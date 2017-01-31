@@ -13,11 +13,11 @@ public class User {
 
     String login;
     String email;
-    private int id;
+    private String id;
     private String password;
 
 
-    public User(String login, String email, int id, String password) {
+    public User(String login, String email, String id, String password) {
         this.login = login;
         this.email = email;
         this.id = id;
@@ -32,7 +32,7 @@ public class User {
         return this.email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

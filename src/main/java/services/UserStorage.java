@@ -41,9 +41,9 @@ public class UserStorage {
         this.users.add(user);
     }
 
-    public void delUserById(int id) {
+    public void delUserById(String id) {
         for (User user: this.users) {
-            if (user.getId() == id) this.users.remove(user);
+            if (user.getId().equals(id)) this.users.remove(user);
         }
     }
 
