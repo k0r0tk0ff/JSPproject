@@ -8,15 +8,6 @@
     <title>MainMenu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<%--    <link rel="stylesheet" href="../bootstrap.min.css">
-    <script src="../jquery.min.js"></script>
-    <script src="../bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="${pageContext.servletContext.contextPath}dist/js/jquery.min.js"></script>
-    <script type="text/javascript" src="${pageContext.servletContext.contextPath}js/bootstrap.min.js"></script>&ndash;%&gt;
-    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
-    <script src="../../dist/js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -54,8 +45,33 @@
             <%--<input type="submit">--%>
         </form>
     </div>
+    <br/>
 
-    <table style="border: 1px solid black;" cellpadding="1" border="1">
+    <!-- Bootstrap table-->
+    <div class="container">
+        <h2>Pet`s clinic customer</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>login</th>
+                <th>email</th>
+                <th>id</th>
+            </tr>
+            </thead>
+            <tbody>
+             <c:forEach items="${users}" var="user">
+             <tr>
+                  <td><c:out value="${user.login}"></c:out></td>
+                  <td><c:out value="${user.email}"></c:out></td>
+                  <td><c:out value="${user.id}"></c:out></td>
+             </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <!-- Simlple table-->
+<%--    <table style="border: 1px solid black;" cellpadding="1" border="1">
             <tr>
                 <th>login</th>
                 <th>email</th>
@@ -68,7 +84,7 @@
                 <td><c:out value="${user.id}"></c:out></td>
             </tr>
         </c:forEach>
-    </table>
+    </table>--%>
 </body>
 </html>
 
