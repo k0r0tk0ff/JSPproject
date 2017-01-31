@@ -8,20 +8,18 @@
     <title>MainMenu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<%--
-    <link rel="stylesheet" href="../bootstrap.min.css">
+<%--    <link rel="stylesheet" href="../bootstrap.min.css">
     <script src="../jquery.min.js"></script>
     <script src="../bootstrap.min.js"></script>
---%>
-<%--    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}dist/css/bootstrap.min.css">
     <script type="text/javascript" src="${pageContext.servletContext.contextPath}dist/js/jquery.min.js"></script>
-    <script type="text/javascript" src="${pageContext.servletContext.contextPath}js/bootstrap.min.js"></script>--%>
+    <script type="text/javascript" src="${pageContext.servletContext.contextPath}js/bootstrap.min.js"></script>&ndash;%&gt;
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
     <script src="../../dist/js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="../../js/bootstrap.min.js"></script>--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -35,14 +33,23 @@
     <div class="container">
         <h3>Add user</h3>
         <form action="${pageContext.servletContext.contextPath}/" method="post">
-                <div class="input-group">
-                    <span class="input-group-addon">Login</span>
-                    <input id="login" type="text" class="form-control" name="login" placeholder="Login">
+            <div class="input-group">
+                <span class="input-group-addon">Login</span>
+                <input id="login" type="text" class="form-control" name="login" placeholder="Login">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Email</span>
+                <input id="email" type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Id</span>
+                <input id="id" type="id" class="form-control" name="id" placeholder="id">
                 </div>
-                <div class="input-group">
-                    <span class="input-group-addon">Email </span>
-                    <input id="email" type="email" class="form-control" name="email" placeholder="Email">
+            <div class="input-group">
+                <span class="input-group-addon">Password</span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="password">
                 </div>
+            <br/>
             <input type="submit" class="btn btn-info" value="add User">
             <%--<input type="submit">--%>
         </form>
