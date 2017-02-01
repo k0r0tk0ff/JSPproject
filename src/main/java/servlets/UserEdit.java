@@ -25,12 +25,14 @@ public class UserEdit extends HttpServlet {
         user.setLogin(request.getParameter("newLogin"));
         user.setEmail(request.getParameter("newEmail"));
         user.setPassword(request.getParameter("newPassword"));
+        this.users.update(user);
 
-        response.sendRedirect(String.format("%s/",request.getContextPath()));
+        response.sendRedirect(String.format("%s/WEB-INF/views/users/edit.jsp",request.getContextPath()));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("user", this.users.getUserById(request.getParameter("id")));
+        request.setAttribute("users", users.getAll());
         request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp").forward(request, response);
     }
 }

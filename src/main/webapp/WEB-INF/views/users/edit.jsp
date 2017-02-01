@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   User: k0r0tk0ff
   Date: 2/1/2017
@@ -16,9 +17,9 @@
 </head>
 <body>
 <div class="container">
-    <h3>Edit user</h3>
+    <h3>Edit user <c:out value="${user.login}"></c:out></h3>
     <%--<form action="${pageContext.servletContext.contextPath}/" method="post">--%>
-    <form action="${pageContext.servletContext.contextPath}/user/edit.do" method="post">
+    <form action="${pageContext.servletContext.contextPath}/users/edit.do" method="post">
         <div class="input-group">
             <span class="input-group-addon">Login</span>
             <input id="newLogin" type="text" class="form-control" name="newLogin" placeholder="">
@@ -38,6 +39,31 @@
         <br/>
         <input type="submit" class="btn btn-info" value="Edit User">
     </form>
+</div>
+<br/>
+
+<!-- Bootstrap table-->
+<div class="container">
+    <h2>Pet`s clinic customer</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>login</th>
+            <th>email</th>
+            <th>id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${users}" var="iterator">
+            <tr>
+                <td><c:out value="${iterator.login}"></c:out></td>
+                <td><c:out value="${iterator.email}"></c:out></td>
+                <td><c:out value="${iterator.id}"></c:out></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <br/>
 </div>
 <br/>
 </body>

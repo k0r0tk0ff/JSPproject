@@ -59,4 +59,9 @@ public class UserStorage {
         return this.users;
     }
 
+    public void update(User user) {
+        this.users.remove(user);
+        this.users.add(user);
+    }
+
 }
