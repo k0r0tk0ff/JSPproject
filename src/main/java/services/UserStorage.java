@@ -47,6 +47,14 @@ public class UserStorage {
         }
     }
 
+    public User getUserById(String id) {
+        User findUser = null;
+        for (User user: this.users) {
+            if (user.getId().equals(id)) findUser = user;
+        }
+        return findUser;
+    }
+
     public List<User> getAll() {
         return this.users;
     }

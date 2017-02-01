@@ -64,6 +64,7 @@
                   <td><c:out value="${user.login}"></c:out></td>
                   <td><c:out value="${user.email}"></c:out></td>
                   <td><c:out value="${user.id}"></c:out></td>
+                  <td><a href="${pageContext.servletContext.contextPath}/user/edit.do?id=${user.id}">Edit user<a></td>
              </tr>
              </c:forEach>
              </tbody>
@@ -71,7 +72,7 @@
         <br/>
     </div>
     <br/>
-    <a href="${pageContext.servletContext.contextPath}/user/delete?id=${user.id}">Delete user<a>
+
     <!-- Simlple table-->
 <%--    <table style="border: 1px solid black;" cellpadding="1" border="1">
             <tr>

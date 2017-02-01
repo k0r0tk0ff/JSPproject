@@ -40,5 +40,15 @@ public class User {
         return password;
     }
 
+    public void setLogin(String newLogin) {
+        this.login = newLogin;
+    }
 
+    public void setEmail(String newEmail) {
+        this.login = newEmail;
+    }
+
+    public void setPassword(String newPassword) {
+        this.login = newPassword;
+    }
 }
