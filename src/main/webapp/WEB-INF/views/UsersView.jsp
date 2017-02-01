@@ -64,7 +64,7 @@
                   <td><c:out value="${user.login}"></c:out></td>
                   <td><c:out value="${user.email}"></c:out></td>
                   <td><c:out value="${user.id}"></c:out></td>
-                  <td><a href="${pageContext.servletContext.contextPath}/user/edit.do?id=${user.id}">Edit user<a></td>
+                  <td><a href="${pageContext.servletContext.contextPath}/users/edit.do?id=${user.id}">Edit user</a></td>
              </tr>
              </c:forEach>
              </tbody>

@@ -21,19 +21,19 @@
     <form action="${pageContext.servletContext.contextPath}/user/edit.do" method="post">
         <div class="input-group">
             <span class="input-group-addon">Login</span>
-            <input id="login" type="text" class="form-control" name="login" placeholder="${login}">
+            <input id="newLogin" type="text" class="form-control" name="newLogin" placeholder="">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Email</span>
-            <input id="email" type="email" class="form-control" name="email" placeholder="${email}">
+            <input id="newEmail" type="email" class="form-control" name="newEmail" placeholder="">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Id</span>
-            <input id="id" type="hidden" class="form-control" name="id" placeholder="id">
+            <input id="Id" type="hidden" class="form-control" name="id">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Password</span>
-            <input id="password" type="password" class="form-control" name="password" placeholder="${password}">
+            <input id="newPassword" type="password" class="form-control" name="newPassword" placeholder="">
         </div>
         <br/>
         <input type="submit" class="btn btn-info" value="Edit User">

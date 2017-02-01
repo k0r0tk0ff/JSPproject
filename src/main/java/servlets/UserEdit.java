@@ -22,9 +22,9 @@ public class UserEdit extends HttpServlet {
 
         User user = UserStorage.getInstance().getUserById(request.getParameter("id"));
 
-        user.setLogin(request.getParameter("login"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
+        user.setLogin(request.getParameter("newLogin"));
+        user.setEmail(request.getParameter("newEmail"));
+        user.setPassword(request.getParameter("newPassword"));
 
         response.sendRedirect(String.format("%s/",request.getContextPath()));
     }
