@@ -18,6 +18,8 @@
 <body>
 <div class="container">
     <h3>Edit user <c:out value="${user.login}"></c:out></h3>
+    <h2>Enter new data</h2>
+    </br>
     <%--<form action="${pageContext.servletContext.contextPath}/" method="post">--%>
     <form action="${pageContext.servletContext.contextPath}/users/edit.do" method="post">
         <div class="input-group">

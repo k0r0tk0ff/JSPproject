@@ -19,7 +19,6 @@ public class UserDel extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        /*storage.deleteUser(storage.getUserById(request.getParameter("id")));*/
         response.sendRedirect(String.format("%s/WEB-INF/views/UsersView.jsp",request.getContextPath()));
     }
 
