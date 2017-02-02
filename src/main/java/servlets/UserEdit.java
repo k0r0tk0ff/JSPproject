@@ -19,15 +19,16 @@ public class UserEdit extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("users", storage.getAll());
+
+        UserStorage.getInstance().delUserById(request.getParameter("id"));
+
+
+
         request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
-        User user = UserStorage.getInstance().getUserById(request.getParameter("id"));
-
-        this.storage.deleteUser(user);
 
         UserStorage.getInstance().add(
                 new User(request.getParameter("newLogin"),
@@ -37,7 +38,19 @@ public class UserEdit extends HttpServlet {
                 )
         );
 
-        response.sendRedirect(String.format("%s/WEB-INF/views/UsersView.jsp",request.getContextPath()));
+
+
+/*        response.setContentType("text/html");
+        UserStorage.getInstance().add(
+                new User(request.getParameter("login"),
+                        request.getParameter("email"),
+                        request.getParameter("id"),
+                        request.getParameter("password")
+                )
+        );*/
+        response.sendRedirect(String.format("%s/",request.getContextPath()));
+
+        /*response.sendRedirect(String.format("%s/WEB-INF/views/UsersView.jsp",request.getContextPath()));*/
 
     }
 
