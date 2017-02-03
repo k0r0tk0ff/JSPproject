@@ -17,11 +17,12 @@
 </head>
 <body>
 <div class="container">
-    <h3>Edit user <c:out value="${user.login}"></c:out></h3>
+    <h3>Edit user <c:out value="${users.getUserById(hiddenId)}"></c:out></h3>
     <h2>Enter new data</h2>
     </br>
 
     <form action="${pageContext.servletContext.contextPath}/users/edit.do" method="post">
+        <input type="hidden" name="id" value="${hiddenId}">
         <div class="input-group">
             <span class="input-group-addon">Login</span>
             <input id="newLogin" type="text" class="form-control" name="newLogin" placeholder="">
@@ -29,10 +30,6 @@
         <div class="input-group">
             <span class="input-group-addon">Email</span>
             <input id="newEmail" type="email" class="form-control" name="newEmail" placeholder="">
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">Id</span>
-            <input id="Id" type="id" class="form-control" name="id">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Password</span>

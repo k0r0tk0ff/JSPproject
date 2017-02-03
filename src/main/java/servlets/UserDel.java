@@ -17,13 +17,8 @@ public class UserDel extends HttpServlet {
 
     private final UserStorage storage = UserStorage.getInstance();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.sendRedirect(String.format("%s/WEB-INF/views/UsersView.jsp",request.getContextPath()));
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        storage.deleteUser(storage.getUserById(request.getParameter("id")));
+        storage.deleteUser(storage.getUserById(Integer.valueOf(request.getParameter("id"))));
         request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
     }
 }

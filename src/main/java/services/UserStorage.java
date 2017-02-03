@@ -4,6 +4,7 @@ import models.User;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -19,16 +20,17 @@ public class UserStorage {
 
      private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
 
+     public AtomicInteger id = new AtomicInteger(0);
     /**.
      * Use singletone conception -
      * https://habrahabr.ru/post/27108/
      */
     public UserStorage() {
-        this.users.add(
-                new User("root",
-                        "rootmail@mail",
-                        "1",
-                        "root"));
+        User root = new User();
+        root.setEmail("rootmail@mail");
+        root.setId(id.incrementAndGet());
+        root.setLogin("root");
+        root.setPassword("asdf");
     }
 
     private static final UserStorage INSTANCE = new UserStorage();
@@ -41,16 +43,16 @@ public class UserStorage {
         this.users.add(user);
     }
 
-    public void delUserById(String id) {
+    public void delUserById(int id) {
         for (User user: this.users) {
-            if (user.getId().equals(id)) this.users.remove(user);
+            if (user.getId() == id) this.users.remove(user);
         }
     }
 
-    public User getUserById(String id) {
+    public User getUserById(int id) {
         User findUser = null;
         for (User user: this.users) {
-            if (user.getId().equals(id)) findUser = user;
+            if (user.getId() == id) findUser = user;
         }
         return findUser;
     }

@@ -1,5 +1,7 @@
 package models;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**.
@@ -11,17 +13,17 @@ public class User {
 
     private static final org.slf4j.Logger Log = getLogger(User.class);
 
-    String login;
-    String email;
-    private String id;
+    private int id;
+    private String login;
+    private String email;
     private String password;
 
+    public User() {
+    }
 
-    public User(String login, String email, String id, String password) {
-        this.login = login;
-        this.email = email;
+    public User(int id) {
+        this();
         this.id = id;
-        this.password = password;
     }
 
     public String getLogin() {
@@ -32,12 +34,16 @@ public class User {
         return this.email;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setLogin(String newLogin) {

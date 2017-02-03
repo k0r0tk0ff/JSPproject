@@ -23,10 +23,6 @@
                 <input id="email" type="email" class="form-control" name="email" placeholder="Email">
             </div>
             <div class="input-group">
-                <span class="input-group-addon">Id</span>
-                <input id="id" type="id" class="form-control" name="id" placeholder="id">
-                </div>
-            <div class="input-group">
                 <span class="input-group-addon">Password</span>
                 <input id="password" type="password" class="form-control" name="password" placeholder="password">
                 </div>

@@ -62,13 +62,13 @@ public class UsersController extends HttpServlet  {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        UserStorage.getInstance().add(
-            new User(request.getParameter("login"),
-                request.getParameter("email"),
-                request.getParameter("id"),
-                request.getParameter("password")
-            )
-        );
+
+        User newUser = new User();
+        newUser.setEmail(request.getParameter("email"));
+        newUser.setLogin(request.getParameter("login"));
+        newUser.setPassword(request.getParameter("password"));
+        storage.getInstance().add(newUser);
+
         response.sendRedirect(String.format("%s/",request.getContextPath()));
     }
 }

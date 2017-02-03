@@ -30,7 +30,7 @@ public class JsonController extends HttpServlet {
 
     }
 
-    @Override
+/*    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UserStorage.getInstance().add(
@@ -38,6 +38,6 @@ public class JsonController extends HttpServlet {
                         "", "")
         );
 
-    }
+    }*/
 
 }

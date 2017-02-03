@@ -24,6 +24,7 @@
     <div class="container">
         <h3>Add user</h3>
         <form action="${pageContext.servletContext.contextPath}/" method="post">
+            <input type="hidden" name="id" value="${user.id}">
             <div class="input-group">
                 <span class="input-group-addon">Login</span>
                 <input id="login" type="text" class="form-control" name="login" placeholder="Login">
