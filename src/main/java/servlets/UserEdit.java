@@ -35,6 +35,11 @@ public class UserEdit extends HttpServlet {
         editedUser.setEmail(request.getParameter("newEmail"));
         editedUser.setLogin(request.getParameter("newLogin"));
         editedUser.setPassword(request.getParameter("newPassword"));
+
+        //Convert to Integer requested parameter "id"
+        // Remember! Servlets work whith only text-type parameters!
+        editedUser.setId(Integer.valueOf(request.getParameter("id")));
+
         storage.getInstance().add(editedUser);
 
         response.sendRedirect(String.format("%s/",request.getContextPath()));

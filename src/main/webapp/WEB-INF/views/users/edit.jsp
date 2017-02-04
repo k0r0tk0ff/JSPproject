@@ -25,7 +25,7 @@
     1) In UsersView.jsp create get request to /users/del.do?id=${user.id} with id, which the we will edit
     2) In servlets.UserEdit bind in request.setAttribute("hiddenId", request.getParameter("id"));
         hiddenId = ${user.id}
-    3) Use bind  ${user.id} and users in our code
+    3) Use bind  ${user.id} and users in our code (for post query)
     -->
 
     <h3>Edit user <c:out value="${users.get(hiddenId).getLogin()}"></c:out></h3>
