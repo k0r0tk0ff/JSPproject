@@ -50,10 +50,10 @@ public class UserStorage {
         }
     }
 
-    public User getUserById(int id) {
+    public User getUserById(String id) {
         User findUser = null;
         for (User user: this.users) {
-            if (user.getId() == id) findUser = user;
+            if (user.getId() == Integer.valueOf(id)) findUser = user;
         }
         return findUser;
     }
