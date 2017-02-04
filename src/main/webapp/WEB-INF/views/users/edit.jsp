@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <h3>Edit user <c:out value="${users.getUserById(hiddenId)}"></c:out></h3>
+    <%--<h3>Edit user <c:out value="${users.getUserById(hiddenId)}"></c:out></h3>--%>
     <h2>Enter new data</h2>
     </br>
 

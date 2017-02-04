@@ -27,10 +27,11 @@ public class UserStorage {
      */
     public UserStorage() {
         User root = new User();
-        root.setEmail("rootmail@mail");
-        root.setId(id.incrementAndGet());
+        root.setEmail("rootmail@mail.ru");
+        root.setId(0);
         root.setLogin("root");
         root.setPassword("asdf");
+        this.users.add(root);
     }
 
     private static final UserStorage INSTANCE = new UserStorage();

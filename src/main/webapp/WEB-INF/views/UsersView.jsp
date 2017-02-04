@@ -24,7 +24,6 @@
     <div class="container">
         <h3>Add user</h3>
         <form action="${pageContext.servletContext.contextPath}/" method="post">
-            <input type="hidden" name="id" value="${user.id}">
             <div class="input-group">
                 <span class="input-group-addon">Login</span>
                 <input id="login" type="text" class="form-control" name="login" placeholder="Login">
@@ -34,16 +33,11 @@
                 <input id="email" type="email" class="form-control" name="email" placeholder="Email">
             </div>
             <div class="input-group">
-                <span class="input-group-addon">Id</span>
-                <input id="id" type="id" class="form-control" name="id" placeholder="id">
-                </div>
-            <div class="input-group">
                 <span class="input-group-addon">Password</span>
                 <input id="password" type="password" class="form-control" name="password" placeholder="password">
                 </div>
             <br/>
             <input type="submit" class="btn btn-info" value="add User">
-            <%--<input type="submit">--%>
         </form>
     </div>
     <br/>

@@ -51,10 +51,10 @@ public class User {
     }
 
     public void setEmail(String newEmail) {
-        this.login = newEmail;
+        this.email = newEmail;
     }
 
     public void setPassword(String newPassword) {
-        this.login = newPassword;
+        this.password = newPassword;
     }
 }

@@ -29,6 +29,8 @@ public class UserEdit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+        storage.getInstance().delUserById(Integer.valueOf(request.getParameter("id")));
+
         User editedUser = new User();
         editedUser.setEmail(request.getParameter("newEmail"));
         editedUser.setLogin(request.getParameter("newLogin"));
