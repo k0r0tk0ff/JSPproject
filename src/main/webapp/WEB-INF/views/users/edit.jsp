@@ -17,6 +17,17 @@
 </head>
 <body>
 <div class="container">
+
+    <!--
+    We are use var "hiddenId" that bind in servlets.UserEdit
+    request.setAttribute("hiddenId", request.getParameter("id"));
+
+    1) In UsersView.jsp create get request to /users/del.do?id=${user.id} with id, which the we will edit
+    2) In servlets.UserEdit bind in request.setAttribute("hiddenId", request.getParameter("id"));
+        hiddenId = ${user.id}
+    3) Use bind  ${user.id} and users in our code
+    -->
+
     <h3>Edit user <c:out value="${users.get(hiddenId).getLogin()}"></c:out></h3>
     <h2>Enter new data</h2>
     </br>
