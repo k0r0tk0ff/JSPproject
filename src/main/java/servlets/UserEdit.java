@@ -44,6 +44,11 @@ public class UserEdit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+        /**. After forward to jsp page with web-interface and enter
+         * interact new data of user, write that data and do main logic of servlet.
+         */
+
+
         /**.
          * Delete user whith parameter "id" determinate in request
          */
@@ -59,7 +64,7 @@ public class UserEdit extends HttpServlet {
 
         /**.
          * Convert to Integer requested parameter "id"
-         * Remember! Servlets work whith only text-type parameters!
+         * Remember! Servlets work with only text-type parameters!
          */
         editedUser.setId(Integer.valueOf(request.getParameter("id")));
 
