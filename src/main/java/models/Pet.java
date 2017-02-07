@@ -7,7 +7,7 @@ package models;
 public class Pet {
 
 	private String nick;
-	private int OwnId;
+	private int ownId;
 	private int petId;
 
 	/**
@@ -16,9 +16,9 @@ public class Pet {
 	private String type;
 
 	public Pet() {}
-	public Pet(int OwnId, int petId, String type, String nick) {
+	public Pet(int ownId, int petId, String type, String nick) {
 		this();
-		this.OwnId = OwnId;
+		this.ownId = ownId;
 		this.type = type;
 		this.petId = petId;
 		this.nick = nick;
@@ -51,10 +51,10 @@ public class Pet {
 	}
 
 	public int getOwnId() {
-		return OwnId;
+		return ownId;
 	}
 
 	public void setOwnId(int ownId) {
-		OwnId = ownId;
+		ownId = ownId;
 	}
 }

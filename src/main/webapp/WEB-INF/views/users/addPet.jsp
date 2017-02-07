@@ -17,14 +17,14 @@
 </head>
 <body>
 
-<h3>Add user`s <c:out value="${users.get(ownid).getLogin()}"></c:out> pet</h3>
+<h3>Add user`s <c:out value="${users.get(ownId).getLogin()}"></c:out> pet</h3>
 </br>
 
 <form action="${pageContext.servletContext.contextPath}/users/addpet.do" method="post">
-    <input type="hidden" name="id" value="ownid">
+    <input type="hidden" name="id" value="${ownId}">
     <div class="input-group">
         <span class="input-group-addon">Nick</span>
-        <input id="nick" type="text" class="form-control" name="nick" placeholder="Enter nick">
+        <input id="nick" type="text" class="form-control" name="nick" placeholder="Enter nick of ${users.get(ownId).getLogin()} `s pet">
     </div>
     <div class="input-group">
         <span class="input-group-addon">Type</span>
@@ -46,7 +46,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users.get(ownid).getUserPets()}" var="iterator">
+        <c:forEach items="${users.get(ownId).getUserPets()}" var="iterator">
             <tr>
                 <td><c:out value="${iterator.getPetId()}"></c:out></td>
                 <td><c:out value="${iterator.getNick()}"></c:out></td>

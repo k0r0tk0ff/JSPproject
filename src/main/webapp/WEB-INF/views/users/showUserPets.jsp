@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <h3>Show pets of customer <c:out value="${users.get(ownid).getLogin()}"></c:out></h3>
+    <h3>Show pets of customer <c:out value="${users.get(ownId).getLogin()}"></c:out></h3>
     </br>
 </div>>
 
@@ -33,7 +33,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users.get(ownid).getUserPets()}" var="iterator">
+        <c:forEach items="${users.get(ownId).getUserPets()}" var="iterator">
             <tr>
                 <td><c:out value="${iterator.getPetId()}"></c:out></td>
                 <td><c:out value="${iterator.getNick()}"></c:out></td>

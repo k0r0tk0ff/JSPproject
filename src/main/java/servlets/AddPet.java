@@ -27,13 +27,13 @@ public class AddPet extends HttpServlet {
 		Pet pet = new Pet();
 		pet.setNick(request.getParameter("nick"));
 		pet.setOwnId(Integer.valueOf(request.getParameter("id")));
+
 		pet.setPetId(user.petId.incrementAndGet());
 		pet.setType(request.getParameter("type"));
 
 		user.addPet(pet);
 
 		response.sendRedirect(String.format("%s/",request.getContextPath()));
-		//response.sendRedirect(String.format("%s/WEB-INF/views/users/showUserPets.jsp",request.getContextPath()));
 
 	}
 
@@ -53,6 +53,7 @@ public class AddPet extends HttpServlet {
 		 * After binding - forward to jsp page with web-interface for enter
 		 * data of pet.
 		 */
+
 		request.getRequestDispatcher("/WEB-INF/views/users/addPet.jsp").forward(request, response);
 	}
 }
