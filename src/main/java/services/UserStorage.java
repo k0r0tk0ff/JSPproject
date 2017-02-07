@@ -1,5 +1,6 @@
 package services;
 
+import models.Pet;
 import models.User;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class UserStorage {
         root.setId(0);
         root.setLogin("root");
         root.setPassword("asdf");
+        root.addPet(new Pet(0, root.petId.incrementAndGet(), "dog", "Rex"));
         this.users.add(root);
     }
 

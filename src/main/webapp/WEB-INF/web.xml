@@ -32,6 +32,24 @@
         <servlet-name>UserDel</servlet-name>
         <url-pattern>/users/del.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddPet</servlet-name>
+        <servlet-class>servlets.AddPet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPet</servlet-name>
+        <url-pattern>/users/addpet.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowUserPets</servlet-name>
+        <servlet-class>servlets.ShowUserPets</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowUserPets</servlet-name>
+        <url-pattern>/users/showpets.do</url-pattern>
+    </servlet-mapping>
+
+    addpet.do
 
 <!--    <servlet>
         <servlet-name>JsonController</servlet-name>

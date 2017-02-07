@@ -1,7 +1,5 @@
 package servlets;
 
-import models.Pet;
-import models.User;
 import services.UserStorage;
 
 import javax.servlet.ServletException;
@@ -15,25 +13,11 @@ import java.io.IOException;
  */
 
 
-public class AddPet extends HttpServlet {
+public class ShowUserPets extends HttpServlet {
 
 	private UserStorage storage = UserStorage.getInstance();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-
-		User user = storage.getUserById(request.getParameter("id"));
-		Pet pet = new Pet();
-		pet.setNick(request.getParameter("nick"));
-		pet.setOwnId(Integer.valueOf(request.getParameter("ownId")));
-		pet.setPetId(user.petId.incrementAndGet());
-		pet.setType(request.getParameter("type"));
-
-		user.addPet(pet);
-
-
-		response.sendRedirect(String.format("%s/WEB-INF/views/users/showUserPets.jsp",request.getContextPath()));
 
 	}
 
@@ -53,6 +37,7 @@ public class AddPet extends HttpServlet {
 		 * After binding - forward to jsp page with web-interface for enter
 		 * data of pet.
 		 */
-		request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp").forward(request, response);
+
+		request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
 	}
 }

@@ -16,11 +16,12 @@ public class Pet {
 	private String type;
 
 	public Pet() {}
-	public Pet(int OwnId, int petId, String type) {
+	public Pet(int OwnId, int petId, String type, String nick) {
 		this();
 		this.OwnId = OwnId;
 		this.type = type;
 		this.petId = petId;
+		this.nick = nick;
 	}
 
 

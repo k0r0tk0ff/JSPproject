@@ -19,6 +19,7 @@ public class UserDel extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         storage.deleteUser(storage.getUserById(request.getParameter("id")));
-        request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
+        //request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
+        request.getRequestDispatcher("/").forward(request, response);
     }
 }
