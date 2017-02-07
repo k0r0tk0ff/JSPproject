@@ -16,11 +16,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <h3>Add pet of customer <c:out value="${users.get(ownid).getLogin()}"></c:out></h3>
-    </br>
 
-</div>>
+<h3>Add user`s <c:out value="${users.get(ownid).getLogin()}"></c:out> pet</h3>
+</br>
+
+<form action="${pageContext.servletContext.contextPath}/users/addpet.do" method="post">
+    <input type="hidden" name="id" value="ownid">
+    <div class="input-group">
+        <span class="input-group-addon">Nick</span>
+        <input id="nick" type="text" class="form-control" name="nick" placeholder="Enter nick">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">Type</span>
+        <input id="type" type="text" class="form-control" name="type" placeholder="Enter type (cat, dog, ...)">
+    </div>
+    <br/>
+    <input type="submit" class="btn btn-info" value="Add pet">
+</form>
 
 <!-- Bootstrap table-->
 <div class="container">

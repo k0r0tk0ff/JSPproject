@@ -48,30 +48,10 @@ public class UserEdit extends HttpServlet {
          * interact new data of user, write that data and do main logic of servlet.
          */
 
-
-        /**.
-         * Delete user whith parameter "id" determinate in request
-         */
-        storage.getInstance().delUserById(Integer.valueOf(request.getParameter("id")));
-
-        /**.
-         * Create new user with new parameter? but old parameter "id"
-         */
-        User editedUser = new User();
+        User editedUser = storage.getInstance().getUserById(request.getParameter("id"));
         editedUser.setEmail(request.getParameter("newEmail"));
         editedUser.setLogin(request.getParameter("newLogin"));
         editedUser.setPassword(request.getParameter("newPassword"));
-
-        /**.
-         * Convert to Integer requested parameter "id"
-         * Remember! Servlets work with only text-type parameters!
-         */
-        editedUser.setId(Integer.valueOf(request.getParameter("id")));
-
-        /**.
-         * Save new user in our database.
-         */
-        storage.getInstance().add(editedUser);
 
         response.sendRedirect(String.format("%s/",request.getContextPath()));
 
