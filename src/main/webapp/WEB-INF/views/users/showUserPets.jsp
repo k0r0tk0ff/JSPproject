@@ -23,7 +23,6 @@
 
 <!-- Bootstrap table-->
 <div class="container">
-    <h2>Pet`s clinic customer</h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -43,6 +42,9 @@
         </tbody>
     </table>
     <br/>
+</div>
+<div class="container">
+    <a href='/' class="btn btn-info" role="button">Main page</a>
 </div>
 <br/>
 </body>
