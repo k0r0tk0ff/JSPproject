@@ -53,7 +53,7 @@ public class UsersController extends HttpServlet  {
          * /WEB-INF/views/UsersView.jsp
          * .
          */
-        request.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/users/UsersView.jsp").forward(request, response);
 
 
     }

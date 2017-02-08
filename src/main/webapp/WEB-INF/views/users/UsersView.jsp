@@ -1,3 +1,4 @@
+<%--@elvariable id="ctx" type=""--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -8,9 +9,18 @@
     <title>MainMenu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+
+<%--    <link type="text/css" rel="stylesheet" href="../dist/css/bootstrap.min.css"/>
+    <script src="../dist/js/jquery.min.js"></script>
+    <script src="../dist/js/bootstrap.min.jss"></script>--%>
+
+    <link rel="stylesheet" href="<c:url value="/dist/css/bootstrap.min.css"></c:url>">
+    <script src="<c:url value="/dist/js/jquery.min.js"></c:url>"></script>
+    <script src="<c:url value="/dist/js/bootstrap.min.js"></c:url>"></script>
+
 </head>
 <body>
 
