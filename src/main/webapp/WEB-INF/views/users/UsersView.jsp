@@ -17,9 +17,9 @@
     <script src="../dist/js/jquery.min.js"></script>
     <script src="../dist/js/bootstrap.min.jss"></script>--%>
 
-    <link rel="stylesheet" href="<c:url value="/dist/css/bootstrap.min.css"></c:url>">
-    <script src="<c:url value="/dist/js/jquery.min.js"></c:url>"></script>
-    <script src="<c:url value="/dist/js/bootstrap.min.js"></c:url>"></script>
+    <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"></c:url>">
+    <script src="<c:url value="/bootstrap/js/jquery.min.js"></c:url>"></script>
+    <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
 </head>
 <body>
