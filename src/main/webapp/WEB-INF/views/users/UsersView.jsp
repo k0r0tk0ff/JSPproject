@@ -1,4 +1,3 @@
-<%--@elvariable id="ctx" type=""--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -13,24 +12,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
 
-<%--    <link type="text/css" rel="stylesheet" href="../dist/css/bootstrap.min.css"/>
-    <script src="../dist/js/jquery.min.js"></script>
-    <script src="../dist/js/bootstrap.min.jss"></script>--%>
-
     <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"></c:url>">
     <script src="<c:url value="/bootstrap/js/jquery.min.js"></c:url>"></script>
     <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
 </head>
 <body>
-
-    <!-- Creade form for add user-->
-<%--    <form action="${pageContext.servletContext.contextPath}/" method="post">
-        Login : <input type="text" name="login"><br/>
-        Email : <input type="text" name="email"><br/>
-        <input type="submit">
-    </form><br/>--%>
-
     <div class="container">
         <h3>Add user</h3>
         <form action="${pageContext.servletContext.contextPath}/" method="post">
