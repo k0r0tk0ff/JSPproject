@@ -71,4 +71,22 @@ public class User {
     public void addPet(Pet pet) {
         this.pets.add(pet);
     }
+
+	public void delPet(Pet pet) {
+        this.pets.remove(pet);
+    }
+
+    public Pet getPetById (int enteredPetId) {
+        Pet findedPet = null;
+        for (Pet pet : this.pets) {
+            if(pet.getPetId() == enteredPetId) {
+	            findedPet = pet;
+            }
+        }
+	    return findedPet;
+    }
+
+    public void delPetbyId(int petId) {
+        this.pets.remove(getPetById(petId));
+    }
 }

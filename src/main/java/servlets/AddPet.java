@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by root on 2/6/17.
+/**.
+ * Servlet for add user`s pet
+ * @author Petr Arsentev
+ * site - http://job4j.ru/
  */
-
 
 public class AddPet extends HttpServlet {
 

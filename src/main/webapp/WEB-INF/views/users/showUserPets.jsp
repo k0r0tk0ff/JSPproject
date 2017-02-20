@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-    <h3>Show pets of customer <c:out value="${users.get(ownId).getLogin()}"></c:out></h3>
+    <h3>Show pets of customer <c:out value="${users.get($ownId).getLogin()}"></c:out></h3>
     </br>
 </div>>
 
@@ -40,6 +40,22 @@
                 <td><c:out value="${iterator.getPetId()}"></c:out></td>
                 <td><c:out value="${iterator.getNick()}"></c:out></td>
                 <td><c:out value="${iterator.getType()}"></c:out></td>
+
+
+<%--        <c:forEach items="${users.get(ownId).getUserPets()}" var="i"
+                   begin="0" end="${users.get(ownId).getUserPets().length}">
+            <tr>
+                <td><c:out value="${i.getPetId()}"></c:out></td>
+                <td><c:out value="${i.getNick()}"></c:out></td>
+                <td><c:out value="${i.getType()}"></c:out></td>--%>
+<%--                <td>
+                    <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=
+                    ${Integer.toString(users.get(ownId).getId())}&
+                        <c:out value="${i.getPetId()}">
+                        </c:out>">
+                    Delete pet
+                    </a>
+                </td>--%>
             </tr>
         </c:forEach>
         </tbody>

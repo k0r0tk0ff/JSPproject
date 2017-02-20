@@ -55,6 +55,14 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         <servlet-name>ShowUserPets</servlet-name>
         <url-pattern>/users/showpets.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DelPet</servlet-name>
+        <servlet-class>servlets.DelPet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DelPet</servlet-name>
+        <url-pattern>/users/petdelete.do</url-pattern>
+    </servlet-mapping>
 
 
 
