@@ -35,10 +35,12 @@ public class DelPet extends HttpServlet {
 		 * data of pet.
 		 */
 		//request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp?id=${userId}").forward(request, response);
-		//request.getRequestDispatcher("/users/showpets.do?id=${userId}").forward(request, response);
+		//request.getRequestDispatcher("/users/showpets.do?id=${request.getParameter("id")}").forward(request, response);
 		//request.getRequestDispatcher("/").forward(request, response);
 		//request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
 		//response.sendRedirect(String.format("%s/",request.getContextPath()));
+		//response.sendRedirect(String.format("%s/WEB-INF/views/users/showUserPets.jsp?id=${request.getParameter(\"id\")}",request.getContextPath()));
+
 		request.getRequestDispatcher("/").forward(request, response);
 
 	}

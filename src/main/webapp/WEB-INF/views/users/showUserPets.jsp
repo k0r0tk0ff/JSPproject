@@ -22,7 +22,7 @@
 <div class="container">
     <h3>Show pets of customer <c:out value="${users.get($ownId).getLogin()}"></c:out></h3>
     </br>
-</div>>
+</div>
 
 <!-- Bootstrap table-->
 <div class="container">
@@ -35,27 +35,15 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users.get(ownId).getUserPets()}" var="iterator">
-            <tr>
-                <td><c:out value="${iterator.getPetId()}"></c:out></td>
-                <td><c:out value="${iterator.getNick()}"></c:out></td>
-                <td><c:out value="${iterator.getType()}"></c:out></td>
-
-
-<%--        <c:forEach items="${users.get(ownId).getUserPets()}" var="i"
-                   begin="0" end="${users.get(ownId).getUserPets().length}">
+        <c:forEach items="${users.get(ownId).getUserPets()}" var="i">
             <tr>
                 <td><c:out value="${i.getPetId()}"></c:out></td>
                 <td><c:out value="${i.getNick()}"></c:out></td>
-                <td><c:out value="${i.getType()}"></c:out></td>--%>
-<%--                <td>
-                    <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=
-                    ${Integer.toString(users.get(ownId).getId())}&
-                        <c:out value="${i.getPetId()}">
-                        </c:out>">
-                    Delete pet
+                <td><c:out value="${i.getType()}"></c:out></td>
+                <td>
+                    <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
                     </a>
-                </td>--%>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
