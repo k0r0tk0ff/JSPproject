@@ -18,6 +18,7 @@ public class User {
 
     public AtomicInteger petId = new AtomicInteger(0);
 
+    private String role;
     private String login;
     private String email;
     private String password;
@@ -34,6 +35,14 @@ public class User {
 
     public String getLogin() {
         return this.login;
+    }
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public void setRole(String enteredRole) {
+        this.role = enteredRole;
     }
 
     public String getEmail() {
