@@ -10,6 +10,11 @@
 <html>
 <body>
 <h2>Hello World!</h2>
+
+<%--
 <jsp:forward page="/users/UsersView.jsp" />
+--%>
+
+<jsp:forward page="login.jsp" />
 </body>
 </html>
