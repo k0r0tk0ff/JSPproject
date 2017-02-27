@@ -49,13 +49,9 @@ public class UsersController extends HttpServlet  {
 
         /**.
          * Add dispatcher whose routing our requests.
-         * All request forward to page
-         * /WEB-INF/views/UsersView.jsp
-         * .
+         * All request forward to page /WEB-INF/views/UsersView.jsp .
          */
         request.getRequestDispatcher("/WEB-INF/views/users/UsersView.jsp").forward(request, response);
-
-
     }
 
     @Override

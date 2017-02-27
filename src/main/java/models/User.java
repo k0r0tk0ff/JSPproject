@@ -18,7 +18,12 @@ public class User {
 
     public AtomicInteger petId = new AtomicInteger(0);
 
+    /**
+     * role must be ROLE_ADMIN or USER
+     */
+
     private String role;
+
     private String login;
     private String email;
     private String password;

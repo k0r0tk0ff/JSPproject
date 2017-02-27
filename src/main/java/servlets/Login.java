@@ -1,15 +1,17 @@
+package servlets;
+
 import models.User;
 import org.slf4j.Logger;
 import services.UserStorage;
 
 import javax.servlet.ServletException;
-        import javax.servlet.http.HttpServlet;
-        import javax.servlet.http.HttpServletRequest;
-        import javax.servlet.http.HttpServletResponse;
-        import java.io.IOException;
-        import java.util.Optional;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Optional;
 
-        import static org.slf4j.LoggerFactory.getLogger;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * TODO: comment
@@ -28,12 +30,13 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Optional<User> result = this.userStorage.findByCridentional(req.getParameter("username"), req.getParameter("password"));
+        Optional<User> result = this.userStorage.findByCredentional(req.getParameter("username"), req.getParameter("password"));
         if (result.isPresent()) {
             User user = result.get();
             req.getSession().setAttribute("user", user);
-            if ("ROLE_ADMIN".equals(user.getRole().getName())) {
-                resp.sendRedirect(String.format("%s/users.do", req.getContextPath()));
+            if ("ROLE_ADMIN".equals(user.getRole())) {
+                //resp.sendRedirect(String.format("%s/users.do", req.getContextPath()));
+                resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
             } else {
                 resp.sendRedirect(String.format("%s/client.do", req.getContextPath()));
             }

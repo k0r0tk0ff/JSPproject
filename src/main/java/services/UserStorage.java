@@ -4,6 +4,7 @@ import models.Pet;
 import models.User;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,6 +32,7 @@ public class UserStorage {
         root.setEmail("rootmail@mail.ru");
         root.setId(0);
         root.setLogin("root");
+        root.setRole("ROLE_ADMIN");
         root.setPassword("asdf");
         root.addPet(new Pet(0, root.petId.incrementAndGet(), "dog", "Rex"));
         this.users.add(root);
@@ -71,6 +73,25 @@ public class UserStorage {
 
     public void deleteUser(User user) {
         this.users.remove(user);
+    }
+
+    /**.
+     * User findByCridentional(String username, String password) use in login page
+     *
+     * @param username - entered username
+     * @param password - entered password
+     */
+
+    public Optional<User>  findByCredentional(String username, String password) {
+
+        Optional<User> userForReturn = Optional.empty();
+
+        for (User findUser: this.users) {
+            if(findUser.getLogin().equals(username)) {
+                if (findUser.getPassword().equals(password)) userForReturn = Optional.of(findUser);
+            }
+        }
+        return userForReturn;
     }
 
 }
