@@ -22,7 +22,7 @@ public class UserStorage {
 
      private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
 
-     public AtomicInteger id = new AtomicInteger(0);
+     public AtomicInteger id = new AtomicInteger(1);
     /**.
      * Use singletone conception -
      * https://habrahabr.ru/post/27108/
@@ -36,6 +36,15 @@ public class UserStorage {
         root.setPassword("asdf");
         root.addPet(new Pet(0, root.petId.incrementAndGet(), "dog", "Rex"));
         this.users.add(root);
+
+        User user = new User();
+        user.setEmail("user@mail.ru");
+        user.setId(1);
+        user.setLogin("user");
+        user.setRole("ROLE_USER");
+        user.setPassword("asdf");
+        user.addPet(new Pet(0, user.petId.incrementAndGet(), "cat", "Markiz"));
+        this.users.add(user);
     }
 
     private static final UserStorage INSTANCE = new UserStorage();

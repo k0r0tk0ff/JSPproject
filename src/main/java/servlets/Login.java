@@ -25,7 +25,7 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 
     @Override
@@ -35,10 +35,11 @@ public class Login extends HttpServlet {
             User user = result.get();
             req.getSession().setAttribute("user", user);
             if ("ROLE_ADMIN".equals(user.getRole())) {
-                //resp.sendRedirect(String.format("%s/users.do", req.getContextPath()));
-                resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
+                resp.sendRedirect(String.format("%s/users/UsersView.jsp", req.getContextPath()));
+
+                //resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
             } else {
-                resp.sendRedirect(String.format("%s/client.do", req.getContextPath()));
+                resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
             }
         } else {
             this.doGet(req, resp);
