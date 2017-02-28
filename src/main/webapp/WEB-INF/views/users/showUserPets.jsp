@@ -20,38 +20,40 @@
 </head>
 <body>
 <div class="container">
-    <h3>Show pets of customer <c:out value="${users.get($ownId).getLogin()}"></c:out></h3>
-    </br>
+    <%--<h3>Show pets of customer <c:out value="${users.get($ownId).getLogin()}"></c:out></h3>--%>
+    <h3>Show pets of customer <c:out value="${users.get(param['id']).getLogin()}"></c:out></h3>
+    <%--<h3>Show pets of customer <c:out value="${param['id']}"></c:out></h3>--%>
+ </br>
 </div>
 
 <!-- Bootstrap table-->
 <div class="container">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <td>Pet`s Id</td>
-            <td>Pet`s nick</td>
-            <td>Pet`s type</td>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${users.get(ownId).getUserPets()}" var="i">
-            <tr>
-                <td><c:out value="${i.getPetId()}"></c:out></td>
-                <td><c:out value="${i.getNick()}"></c:out></td>
-                <td><c:out value="${i.getType()}"></c:out></td>
-                <td>
-                    <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
-                    </a>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <br/>
+ <table class="table table-striped">
+     <thead>
+     <tr>
+         <td>Pet`s Id</td>
+         <td>Pet`s nick</td>
+         <td>Pet`s type</td>
+     </tr>
+     </thead>
+     <tbody>
+     <c:forEach items="${users.get(ownId).getUserPets()}" var="i">
+         <tr>
+             <td><c:out value="${i.getPetId()}"></c:out></td>
+             <td><c:out value="${i.getNick()}"></c:out></td>
+             <td><c:out value="${i.getType()}"></c:out></td>
+             <td>
+                 <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
+                 </a>
+             </td>
+         </tr>
+     </c:forEach>
+     </tbody>
+ </table>
+ <br/>
 </div>
 <div class="container">
-    <a href='/' class="btn btn-info" role="button">Main page</a>
+ <a href='/' class="btn btn-info" role="button">Main page</a>
 </div>
 <br/>
 </body>

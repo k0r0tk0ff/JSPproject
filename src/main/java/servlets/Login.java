@@ -44,12 +44,10 @@ public class Login extends HttpServlet {
             req.getSession().setAttribute("user", user);
             if ("ROLE_ADMIN".equals(user.getRole())) {
                 resp.sendRedirect(String.format("%s/users/UsersView.jsp", req.getContextPath()));
-
-                //resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
             } else {
-                //String userId = String.valueOf(user.getId());
-                resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
-                        req.getContextPath(), String.valueOf(user.getId())));
+                 req.setAttribute("ownId", String.valueOf(user.getId()));
+                 resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+                     req.getContextPath(), String.valueOf(user.getId())));
             }
         } else {
             this.doGet(req, resp);
