@@ -71,6 +71,14 @@ public class UserStorage {
         return findUser;
     }
 
+    public User getUserByLogin(String loginForFind) {
+        User findUser = null;
+        for (User user: this.users) {
+            if (user.getLogin().equals(loginForFind)) findUser = user;
+        }
+        return findUser;
+    }
+
     public List<User> getAll() {
         return this.users;
     }

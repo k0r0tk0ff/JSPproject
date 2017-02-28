@@ -30,7 +30,15 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Optional<User> result = this.userStorage.findByCredentional(req.getParameter("username"), req.getParameter("password"));
+        String usernameFromRequest = req.getParameter("username");
+
+        /**
+         * Bind parameter "users" for access to database with users
+         */
+        req.setAttribute("users", userStorage.getAll());
+
+        Optional<User> result = this.userStorage.findByCredentional(req.getParameter("username"),
+                req.getParameter("password"));
         if (result.isPresent()) {
             User user = result.get();
             req.getSession().setAttribute("user", user);
@@ -39,7 +47,9 @@ public class Login extends HttpServlet {
 
                 //resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
             } else {
-                resp.sendRedirect(String.format("%s/users/showpets.do", req.getContextPath()));
+                //String userId = String.valueOf(user.getId());
+                resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+                        req.getContextPath(), String.valueOf(user.getId())));
             }
         } else {
             this.doGet(req, resp);
