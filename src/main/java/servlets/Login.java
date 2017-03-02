@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
             User user = result.get();
             req.getSession().setAttribute("user", user);
             if ("ROLE_ADMIN".equals(user.getRole())) {
-                resp.sendRedirect(String.format("%s/users/UsersView.jsp", req.getContextPath()));
+                 resp.sendRedirect(String.format("%s/users/UsersView.do", req.getContextPath()));
             } else {
                  req.setAttribute("ownId", String.valueOf(user.getId()));
                  resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",

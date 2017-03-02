@@ -27,7 +27,7 @@ public class UsersControllerTest {
     @Test
     public void whenExecutePostShouldCreateUser() throws ServletException,IOException {
 
-       /*
+       /**.
         * Create test etalon user for compare in our test
         */
 
@@ -37,13 +37,10 @@ public class UsersControllerTest {
         user.setPassword("root");
         UsersController usersController = new UsersController();
 
-        // UserStorage testStorage = new UserStorage();
-        // testStorage.add(user);
-
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
 
-        /*.
+        /**.
          * Compare post`s values of response and java`s methods.
          */
 
@@ -55,7 +52,7 @@ public class UsersControllerTest {
         assertThat("root", equalTo(UserStorage.getInstance().getAll().iterator().next().getLogin()));
         assertThat(UserStorage.getInstance().getAll().iterator().next().getLogin(), is("root"));
 
-        /*.
+        /**.
          * Compare post`s values of response and save fields of created user.
          */
         when(request.getParameter("login")).thenReturn("root");
