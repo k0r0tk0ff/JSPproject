@@ -13,6 +13,15 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
              id="WebApp_ID" version="3.0">
 
     <display-name>JSPproject</display-name>
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>servlets.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
 
     <servlet>
         <servlet-name>UsersController</servlet-name>
