@@ -1,5 +1,7 @@
 package servlets;
 
+import models.User;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,12 +28,30 @@ public class AuthFilter implements Filter {
 		 * Initialize session attributes
 		 */
 		HttpSession session = req.getSession(true);
-        Object user = req.getAttribute("user");
+        //Object user = req.getAttribute("user");
 
 		if (req.getRequestURI().contains("/login.do")) {
 			chain.doFilter(request, response);
 		} else if (session == null || user == null) {
-			resp.sendRedirect();
+			resp.sendRedirect(String.format("%s/login.do", req.getContextPath()));
+			}
+
+		/**.
+		 * Use construction ((User) user) for define class User for field user
+		 */
+			else if ("ROLE_USER".equals(((User) user).getRole())){
+				/*if (req.getRequestURI().contains("/client")) {*/
+				if (req.getRequestURI().contains("/users/showpets.do")) {
+					chain.doFilter(request, response);
+				} else {
+					((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
+				}
+			} else {
+				if ("ROLE_ADMIN".equals(((User) user).getRole())) {
+					chain.doFilter(request, response);
+				} else {
+					((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
+				}
 		}
 
 	}

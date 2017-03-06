@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -30,7 +31,6 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String usernameFromRequest = req.getParameter("username");
 
         /**
          * Bind parameter "users" for access to database with users
@@ -39,11 +39,14 @@ public class Login extends HttpServlet {
 
         Optional<User> result = this.userStorage.findByCredentional(req.getParameter("username"),
                 req.getParameter("password"));
+
         if (result.isPresent()) {
             User user = result.get();
             req.getSession().setAttribute("user", user);
-            if ("ROLE_ADMIN".equals(user.getRole())) {
+
+            if ("ROLE_ADMIN".equals(user.getRole()))  {
                  resp.sendRedirect(String.format("%s/users/UsersView.do", req.getContextPath()));
+
             } else {
                  req.setAttribute("ownId", String.valueOf(user.getId()));
                  resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
