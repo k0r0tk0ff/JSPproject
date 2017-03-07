@@ -27,8 +27,10 @@ public class AuthFilter implements Filter {
 		/**.
 		 * Initialize session attributes
 		 */
+		//HttpSession session = req.getSession(true);
 		HttpSession session = req.getSession(true);
-        Object user = req.getAttribute("user");
+        //Object user = req.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
 		if (req.getRequestURI().contains("/login.do")) {
 			chain.doFilter(request, response);
@@ -40,14 +42,14 @@ public class AuthFilter implements Filter {
 		/**.
 		 * Use construction ((User) user) for define class User for field user
 		 */
-			else if ("ROLE_USER".equals(((User) user).getRole())){
+			else if ("ROLE_USER".equals(user.getRole())){
 				if (req.getRequestURI().contains("/users/showpets.do")) {
 					chain.doFilter(request, response);
 				} else {
 					((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
 				}
 			} else {
-				if ("ROLE_ADMIN".equals(((User) user).getRole())) {
+				if ("ROLE_ADMIN".equals(user.getRole())) {
 					chain.doFilter(request, response);
 				} else {
 					((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);

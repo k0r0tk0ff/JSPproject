@@ -30,7 +30,8 @@ public class Login extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
         /**
          * Bind parameter "users" for access to database with users
@@ -42,7 +43,8 @@ public class Login extends HttpServlet {
 
         if (result.isPresent()) {
             User user = result.get();
-            req.getSession().setAttribute("user", user);
+            HttpSession session = req.getSession();
+            session.setAttribute("user", user);
 
             if ("ROLE_ADMIN".equals(user.getRole()))  {
                  resp.sendRedirect(String.format("%s/users/UsersView.do", req.getContextPath()));
