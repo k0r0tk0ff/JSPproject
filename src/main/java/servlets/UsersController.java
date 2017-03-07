@@ -67,7 +67,6 @@ public class UsersController extends HttpServlet  {
         newUser.setRole(request.getParameter("role"));
         storage.getInstance().add(newUser);
 
-        //response.sendRedirect(String.format("%s/",request.getContextPath()));
         response.sendRedirect(String.format("%s/users/UsersView.do",request.getContextPath()));
     }
 }

@@ -28,11 +28,12 @@ public class AuthFilter implements Filter {
 		 * Initialize session attributes
 		 */
 		HttpSession session = req.getSession(true);
-        //Object user = req.getAttribute("user");
+        Object user = req.getAttribute("user");
 
 		if (req.getRequestURI().contains("/login.do")) {
 			chain.doFilter(request, response);
 		} else if (session == null || user == null) {
+		//} else if (session == null) {
 			resp.sendRedirect(String.format("%s/login.do", req.getContextPath()));
 			}
 
@@ -40,7 +41,6 @@ public class AuthFilter implements Filter {
 		 * Use construction ((User) user) for define class User for field user
 		 */
 			else if ("ROLE_USER".equals(((User) user).getRole())){
-				/*if (req.getRequestURI().contains("/client")) {*/
 				if (req.getRequestURI().contains("/users/showpets.do")) {
 					chain.doFilter(request, response);
 				} else {
@@ -53,11 +53,9 @@ public class AuthFilter implements Filter {
 					((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
 				}
 		}
-
 	}
 
 	public void init(FilterConfig config) throws ServletException {
-
 	}
 
 	public void destroy() {
