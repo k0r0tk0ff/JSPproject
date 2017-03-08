@@ -1,11 +1,13 @@
 package servlets;
 
+import models.User;
 import services.UserStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -37,6 +39,9 @@ public class ShowUserPets extends HttpServlet {
 		 * After binding - forward to jsp page with web-interface for enter
 		 * data of pet.
 		 */
+
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
 
 		request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
 	}

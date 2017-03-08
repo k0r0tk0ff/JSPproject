@@ -33,7 +33,7 @@ public class UserStorage {
         root.setId(0);
         root.setLogin("root");
         root.setRole("ROLE_ADMIN");
-        root.setPassword("asdf");
+        root.setPassword("s");
         root.addPet(new Pet(0, root.petId.incrementAndGet(), "dog", "Rex"));
         this.users.add(root);
 

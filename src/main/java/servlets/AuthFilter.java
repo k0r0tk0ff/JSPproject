@@ -27,9 +27,8 @@ public class AuthFilter implements Filter {
 		/**.
 		 * Initialize session attributes
 		 */
-		//HttpSession session = req.getSession(true);
+
 		HttpSession session = req.getSession(true);
-        //Object user = req.getAttribute("user");
         User user = (User) session.getAttribute("user");
 
 		if (req.getRequestURI().contains("/login.do")) {
