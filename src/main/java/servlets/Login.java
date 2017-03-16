@@ -26,7 +26,33 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+
+        /**.
+         * Add binding object "User" for Http session
+         *
+         */
+        User user = userStorage.getUserById(req.getParameter("id"));
+
+        HttpSession session = req.getSession();
+        session.setAttribute("user", user);
+
+        if (session == null) {
+        req.getRequestDispatcher("login.jsp").forward(req, resp);}
+        else {
+
+            User userForIf = (User) session.getAttribute("user");
+
+            if ("ROLE_ADMIN".equals( userForIf.getRole()))  {
+            resp.sendRedirect(String.format("%s/users/UsersView.do", req.getContextPath()));
+            }
+            else {
+
+            User userForIfTwo = (User) session.getAttribute("user");
+
+            resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+                req.getContextPath(), String.valueOf(userForIfTwo.getId())));
+            }
+        }
     }
 
     @Override

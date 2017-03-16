@@ -53,7 +53,7 @@
  <br/>
 </div>
 <div class="container">
- <a href='/' class="btn btn-info" role="button">Main page</a>
+ <a href='/login.do?id=${ownId}' class="btn btn-info" role="button">Main page</a>
 </div>
 <br/>
 </body>

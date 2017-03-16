@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Add another dependencies;
@@ -46,6 +47,18 @@ public class UsersController extends HttpServlet  {
          * for use short path in calls.
          */
         request.setAttribute("users", storage.getAll());
+
+
+        /**.
+         * Add binding object "User" for Http session
+         *
+         */
+        //User user = storage.getUserById(request.getParameter("id"));
+
+
+        //HttpSession session = request.getSession();
+        //session.setAttribute("user", user);
+
 
         /**.
          * Add dispatcher whose routing our requests.
