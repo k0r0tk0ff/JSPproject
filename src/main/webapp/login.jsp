@@ -41,7 +41,6 @@
                             <input type="submit" class="btn btn-default pull-right" value="Войти">
                         </div>
                     </div>
-                    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
                 </form>
             </div>
         </div>
