@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**.
@@ -21,6 +22,19 @@ public class DelPet extends HttpServlet {
 	private UserStorage storage = UserStorage.getInstance();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		User user = storage.getUserById(request.getParameter("id"));
+		int intPetId = Integer.valueOf(request.getParameter("petId"));
+
+		user.delPet(user.getPetById(intPetId));
+
+
+		HttpSession session = request.getSession(true);
+		session.setAttribute("user", user);
+
+		response.sendRedirect(String.format("%s/login.do",request.getContextPath()));
+		/*request.getRequestDispatcher("/login.do").forward(request, response);*/
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +55,9 @@ public class DelPet extends HttpServlet {
 		//response.sendRedirect(String.format("%s/",request.getContextPath()));
 		//response.sendRedirect(String.format("%s/WEB-INF/views/users/showUserPets.jsp?id=${request.getParameter(\"id\")}",request.getContextPath()));
 
-		request.getRequestDispatcher("/").forward(request, response);
+		request.getRequestDispatcher("/login.do").forward(request, response);
+
+
 
 	}
 }

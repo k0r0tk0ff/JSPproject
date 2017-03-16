@@ -30,6 +30,7 @@ public class AuthFilter implements Filter {
 
 		HttpSession session = req.getSession(true);
         User user = (User) session.getAttribute("user");
+		session.getAttribute("user");
 
 		if (req.getRequestURI().contains("/login.do")) {
 			chain.doFilter(request, response);

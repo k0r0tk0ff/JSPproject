@@ -43,8 +43,11 @@
              <td><c:out value="${i.getNick()}"></c:out></td>
              <td><c:out value="${i.getType()}"></c:out></td>
              <td>
-                 <a href="${pageContext.servletContext.contextPath}/users/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
-                 </a>
+<%--                 <a href="/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
+                 </a>--%>
+                <form action="/petdelete.do?id=${ownId}&petId=${i.getPetId()}" method="post">
+                <input type="submit" class="btn btn-info" value="del Pet">
+                </form>
              </td>
          </tr>
      </c:forEach>
@@ -53,7 +56,8 @@
  <br/>
 </div>
 <div class="container">
- <a href='/login.do?id=${ownId}' class="btn btn-info" role="button">Main page</a>
+ <a href='/login.do' class="btn btn-info" role="button">Main page</a>
+ <%--<a href='/login.do?id=${ownId}' class="btn btn-info" role="button">Main page</a>--%>
 </div>
 <br/>
 </body>

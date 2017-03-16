@@ -31,12 +31,14 @@ public class Login extends HttpServlet {
          * Add binding object "User" for Http session
          *
          */
-        User user = userStorage.getUserById(req.getParameter("id"));
+
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
+/*        User user = userStorage.getUserById(req.getParameter("id"));
 
         HttpSession session = req.getSession();
         session.setAttribute("user", user);
 
-        if (session == null) {
+        if (session == null || user == null) {
         req.getRequestDispatcher("login.jsp").forward(req, resp);}
         else {
 
@@ -52,7 +54,7 @@ public class Login extends HttpServlet {
             resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
                 req.getContextPath(), String.valueOf(userForIfTwo.getId())));
             }
-        }
+        }*/
     }
 
     @Override
@@ -69,7 +71,7 @@ public class Login extends HttpServlet {
 
         if (result.isPresent()) {
             User user = result.get();
-            HttpSession session = req.getSession(false);
+            HttpSession session = req.getSession();
             session.setAttribute("user", user);
 
             if ("ROLE_ADMIN".equals(user.getRole()))  {

@@ -89,7 +89,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     </servlet>
     <servlet-mapping>
         <servlet-name>DelPet</servlet-name>
-        <url-pattern>/users/petdelete.do</url-pattern>
+        <url-pattern>/petdelete.do</url-pattern>
     </servlet-mapping>
 
 
