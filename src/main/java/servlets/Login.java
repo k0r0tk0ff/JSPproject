@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 
         if (result.isPresent()) {
             User user = result.get();
-            HttpSession session = req.getSession();
+            HttpSession session = req.getSession(false);
             session.setAttribute("user", user);
 
             if ("ROLE_ADMIN".equals(user.getRole()))  {
