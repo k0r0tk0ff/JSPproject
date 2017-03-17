@@ -26,14 +26,15 @@ public class DelPet extends HttpServlet {
 		User user = storage.getUserById(request.getParameter("id"));
 		int intPetId = Integer.valueOf(request.getParameter("petId"));
 
+		HttpSession session = request.getSession(true);
+		session.setAttribute("user", (Object) user);
+
 		user.delPet(user.getPetById(intPetId));
 
-
-		HttpSession session = request.getSession(true);
-		session.setAttribute("user", user);
-
-		response.sendRedirect(String.format("%s/login.do",request.getContextPath()));
-		/*request.getRequestDispatcher("/login.do").forward(request, response);*/
+		//response.sendRedirect(String.format("%s/login.do",request.getContextPath()));
+		//request.getRequestDispatcher("/login.do").forward(request, response);
+		response.sendRedirect(String.format("%s/users/UsersView.do", request.getContextPath()));
+		//response.sendRedirect("login.do");
 
 	}
 

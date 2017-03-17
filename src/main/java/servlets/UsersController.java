@@ -48,18 +48,6 @@ public class UsersController extends HttpServlet  {
          */
         request.setAttribute("users", storage.getAll());
 
-
-        /**.
-         * Add binding object "User" for Http session
-         *
-         */
-        //User user = storage.getUserById(request.getParameter("id"));
-
-
-        //HttpSession session = request.getSession();
-        //session.setAttribute("user", user);
-
-
         /**.
          * Add dispatcher whose routing our requests.
          * All request forward to page /WEB-INF/views/UsersView.jsp .
@@ -71,6 +59,8 @@ public class UsersController extends HttpServlet  {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
+
+
 
         User newUser = new User();
         newUser.setEmail(request.getParameter("email"));

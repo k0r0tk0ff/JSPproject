@@ -40,9 +40,9 @@ public class UserStorage {
         User user = new User();
         user.setEmail("user@mail.ru");
         user.setId(1);
-        user.setLogin("user");
+        user.setLogin("v");
         user.setRole("ROLE_USER");
-        user.setPassword("asdf");
+        user.setPassword("v");
         user.addPet(new Pet(0, user.petId.incrementAndGet(), "cat", "Markiz"));
         this.users.add(user);
 
@@ -50,7 +50,7 @@ public class UserStorage {
         user2.setEmail("user2@mail.ru");
         user2.setId(2);
         user2.setLogin("a");
-        user2.setRole("ROLE_USER");
+        user2.setRole("ROLE_ADMIN");
         user2.setPassword("a");
         user2.addPet(new Pet(0, user.petId.incrementAndGet(), "cat", "Murka"));
         this.users.add(user2);
