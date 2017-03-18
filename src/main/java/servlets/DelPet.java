@@ -37,14 +37,25 @@ public class DelPet extends HttpServlet {
 		User sessionUser = (User) session.getAttribute("user");
 
 
-		//request.getRequestDispatcher("/login.do").forward(request, response);
+
+		//response.sendRedirect(String.format("%s/login.do", request.getContextPath()));
+
 
 		//response.sendRedirect("login.do");
 
-		//response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
-		//		request.getContextPath(), String.valueOf(sessionUser.getId())));
+		response.sendRedirect(String.format("/users/showpets.do?id=%s",
+				request.getParameter("id")));
+
+		//request.getRequestDispatcher(String.format("%s/users/showpets.do?id=%s",
+		//		request.getContextPath(), request.getParameter("id"))).forward(request, response);
 
 		//request.getContextPath(), String.valueOf(request.getParameter("id"))));
+
+/*		if (sessionUser.getRole().equals("ROLE_ADMIN")) {
+				response.sendRedirect(String.format("%s/users/UsersView.do", request.getContextPath()));}
+		else {response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+						request.getContextPath(), String.valueOf(sessionUser.getId())));}*/
+
 
 	}
 

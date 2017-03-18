@@ -29,6 +29,7 @@
 <!-- Bootstrap table-->
 <div class="container">
  <table class="table table-striped">
+     <h2> SessionID = <c:out value="${session.getId()}"></c:out></h2>
      <thead>
      <tr>
          <td>Pet`s Id</td>
@@ -43,8 +44,7 @@
              <td><c:out value="${i.getNick()}"></c:out></td>
              <td><c:out value="${i.getType()}"></c:out></td>
              <td>
-<%--                 <a href="/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet
-                 </a>--%>
+                 <%--<a href="/petdelete.do?id=${ownId}&petId=${i.getPetId()}">Delete pet</a>--%>
                 <form action="/petdelete.do?id=${ownId}&petId=${i.getPetId()}" method="post">
                 <input type="submit" class="btn btn-info" value="del Pet">
                 </form>
