@@ -70,6 +70,14 @@ public class UsersController extends HttpServlet  {
         newUser.setRole(request.getParameter("role"));
         storage.getInstance().add(newUser);
 
+        /*		HttpSession session = request.getSession(true);
+
+		User sessionUser = (User) session.getAttribute("user");*/
+
+
+        //response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+        //        request.getContextPath(), String.valueOf(user.getId())));
+
         response.sendRedirect(String.format("%s/users/UsersView.do",request.getContextPath()));
     }
 }

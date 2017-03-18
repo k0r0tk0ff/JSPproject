@@ -34,7 +34,7 @@ public class AuthFilter implements Filter {
          */
         User user = (User) session.getAttribute("user");
 
-        if (req.getRequestURI().contains("/login.do")) {
+        if (req.getRequestURI().contains("login.do")) {
             chain.doFilter(request, response);
         } else if (session == null || user == null) {
             resp.sendRedirect(String.format("%s/login.do", req.getContextPath()));

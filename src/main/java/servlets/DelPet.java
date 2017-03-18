@@ -1,6 +1,5 @@
 package servlets;
 
-import models.Pet;
 import models.User;
 import services.UserStorage;
 
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
 
 /**.
  * Servlet for del user`s pet
@@ -26,15 +26,25 @@ public class DelPet extends HttpServlet {
 		User user = storage.getUserById(request.getParameter("id"));
 		int intPetId = Integer.valueOf(request.getParameter("petId"));
 
-		HttpSession session = request.getSession(true);
-		session.setAttribute("user", (Object) user);
-
 		user.delPet(user.getPetById(intPetId));
 
-		//response.sendRedirect(String.format("%s/login.do",request.getContextPath()));
+		/**
+		 * Work with http session
+		 */
+
+		HttpSession session = request.getSession(true);
+
+		User sessionUser = (User) session.getAttribute("user");
+
+
 		//request.getRequestDispatcher("/login.do").forward(request, response);
-		response.sendRedirect(String.format("%s/users/UsersView.do", request.getContextPath()));
+
 		//response.sendRedirect("login.do");
+
+		//response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+		//		request.getContextPath(), String.valueOf(sessionUser.getId())));
+
+		//request.getContextPath(), String.valueOf(request.getParameter("id"))));
 
 	}
 
