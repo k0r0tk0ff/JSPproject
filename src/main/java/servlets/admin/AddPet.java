@@ -1,5 +1,6 @@
-package servlets;
+package servlets.admin;
 
+import models.Pet;
 import models.User;
 import services.UserStorage;
 
@@ -7,19 +8,33 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Created by root on 2/6/17.
+/**.
+ * Servlet for add user`s pet
+ * @author Petr Arsentev
+ * site - http://job4j.ru/
  */
 
-
-public class ShowUserPets extends HttpServlet {
+public class AddPet extends HttpServlet {
 
 	private UserStorage storage = UserStorage.getInstance();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html");
+
+		User user = storage.getUserById(request.getParameter("id"));
+		Pet pet = new Pet();
+		pet.setNick(request.getParameter("nick"));
+		pet.setOwnId(Integer.valueOf(request.getParameter("id")));
+
+		pet.setPetId(user.petId.incrementAndGet());
+		pet.setType(request.getParameter("type"));
+
+		user.addPet(pet);
+
+		response.sendRedirect(String.format("%s/",request.getContextPath()));
 
 	}
 
@@ -40,9 +55,6 @@ public class ShowUserPets extends HttpServlet {
 		 * data of pet.
 		 */
 
-		HttpSession session = request.getSession(true);
-		User user = (User) session.getAttribute("user");
-
-		request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/users/addPet.jsp").forward(request, response);
 	}
 }

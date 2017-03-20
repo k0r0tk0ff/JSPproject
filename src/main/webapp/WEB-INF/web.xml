@@ -16,7 +16,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <filter>
         <filter-name>AuthFilter</filter-name>
-        <filter-class>servlets.AuthFilter</filter-class>
+        <filter-class>servlets.admin.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>
@@ -25,7 +25,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>UsersController</servlet-name>
-        <servlet-class>servlets.UsersController</servlet-class>
+        <servlet-class>servlets.admin.UsersController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UsersController</servlet-name>
@@ -34,7 +34,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>InputClientServlet</servlet-name>
-        <servlet-class>servlets.InputClientServlet</servlet-class>
+        <servlet-class>servlets.admin.InputClientServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InputClientServlet</servlet-name>
@@ -43,7 +43,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>servlets.Login</servlet-class>
+        <servlet-class>servlets.admin.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -52,7 +52,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>UserEdit</servlet-name>
-        <servlet-class>servlets.UserEdit</servlet-class>
+        <servlet-class>servlets.admin.UserEdit</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserEdit</servlet-name>
@@ -60,7 +60,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     </servlet-mapping>
     <servlet>
         <servlet-name>UserDel</servlet-name>
-        <servlet-class>servlets.UserDel</servlet-class>
+        <servlet-class>servlets.admin.UserDel</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserDel</servlet-name>
@@ -68,7 +68,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     </servlet-mapping>
     <servlet>
         <servlet-name>AddPet</servlet-name>
-        <servlet-class>servlets.AddPet</servlet-class>
+        <servlet-class>servlets.admin.AddPet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddPet</servlet-name>
@@ -76,7 +76,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowUserPets</servlet-name>
-        <servlet-class>servlets.ShowUserPets</servlet-class>
+        <servlet-class>servlets.admin.ShowUserPets</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowUserPets</servlet-name>
@@ -85,7 +85,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>DelPet</servlet-name>
-        <servlet-class>servlets.DelPet</servlet-class>
+        <servlet-class>servlets.admin.DelPet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DelPet</servlet-name>
@@ -95,7 +95,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     <!--Section for user`s request-->
     <servlet>
         <servlet-name>DelPetForClient</servlet-name>
-        <servlet-class>servlets.DelPetForUser</servlet-class>
+        <servlet-class>servlets.client.DelPetForUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DelPetForClient</servlet-name>
@@ -104,7 +104,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
     <servlet>
         <servlet-name>ShowUserPetsForUser</servlet-name>
-        <servlet-class>servlets.ShowUserPetsForUser</servlet-class>
+        <servlet-class>servlets.client.ShowUserPetsForUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowUserPetsForUser</servlet-name>
@@ -116,7 +116,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 <!--    <servlet>
         <servlet-name>JsonController</servlet-name>
-        <servlet-class>servlets.JsonController</servlet-class>
+        <servlet-class>servlets.admin.JsonController</servlet-class>
     </servlet>
 
     <servlet-mapping>

@@ -1,4 +1,4 @@
-package servlets;
+package servlets.admin;
 
 import models.User;
 import services.UserStorage;
@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 
 
-public class ShowUserPetsForUser extends HttpServlet {
+public class ShowUserPets extends HttpServlet {
 
 	private UserStorage storage = UserStorage.getInstance();
 
@@ -43,9 +43,6 @@ public class ShowUserPetsForUser extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
 
-		//request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
-
-
-		request.getRequestDispatcher("/WEB-INF/views/users/showUserPetsForUser.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/users/showUserPets.jsp").forward(request, response);
 	}
 }

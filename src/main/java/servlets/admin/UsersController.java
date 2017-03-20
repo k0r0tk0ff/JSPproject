@@ -1,4 +1,4 @@
-package servlets;
+package servlets.admin;
 
 /**.
  * Work with MVC`s
@@ -56,7 +56,7 @@ public class UsersController extends HttpServlet  {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
 

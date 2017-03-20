@@ -1,4 +1,4 @@
-package servlets;
+package servlets.admin;
 
 import models.User;
 import services.UserStorage;

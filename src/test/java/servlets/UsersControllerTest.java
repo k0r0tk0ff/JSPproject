@@ -3,8 +3,8 @@ package servlets;
 import models.User;
 import org.junit.Test;
 import services.UserStorage;
+import servlets.admin.UsersController;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +12,6 @@ import java.io.IOException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

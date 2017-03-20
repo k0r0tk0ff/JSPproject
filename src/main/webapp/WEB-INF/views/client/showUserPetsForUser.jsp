@@ -52,10 +52,12 @@
  </table>
  <br/>
 </div>
-<div class="container">
- <a href='/login.do' class="btn btn-info" role="button">Main page</a>
- <%--<a href='/login.do?id=${ownId}' class="btn btn-info" role="button">Main page</a>--%>
-</div>
+<%--<div class="container">
+    <a href="${pageContext.servletContext.contextPath}/users/addpet.do?id=${user.id}">AddPet</a>
+</div>--%>
+<form action="${pageContext.request.contextPath}/users/addpet.do?id=${ownId}" method="post">
+    <input type="submit" class="btn btn-info" value="Add Pet">
+</form>
 <br/>
 </body>
 </html>

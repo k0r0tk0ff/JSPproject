@@ -1,4 +1,4 @@
-package servlets;
+package servlets.admin;
 
 import models.User;
 import services.UserStorage;
@@ -17,12 +17,11 @@ import java.io.IOException;
  * site - http://job4j.ru/
  */
 
-public class DelPetForUser extends HttpServlet {
+public class DelPet extends HttpServlet {
 
 	private UserStorage storage = UserStorage.getInstance();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		User user = storage.getUserById(request.getParameter("id"));
 		int intPetId = Integer.valueOf(request.getParameter("petId"));
@@ -36,15 +35,25 @@ public class DelPetForUser extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		User sessionUser = (User) session.getAttribute("user");
 
-		//response.sendRedirect(String.format("%s/users/UsersView.do",
-		//				request.getContextPath()));
+		if (sessionUser.getRole().equals("ROLE_ADMIN")) {
+				response.sendRedirect(String.format("%s/users/UsersView.do",
+						request.getContextPath()));}
+		else {
+			//response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+			//		request.getContextPath(), String.valueOf(sessionUser.getId())));
 
-		response.sendRedirect(String.format("%s/client/showpets.do?id=%s",
-				request.getContextPath(), String.valueOf(user.getId())));
-	}
+		//	String ownId = String.valueOf(request.getAttribute("ownId"));
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			//response.sendRedirect(String.format("%s/users/showpets.do?id=%s", request.getContextPath(),
+			//	request.getParameter("ownId")));
+
+			request.getRequestDispatcher(String.format("%s/users/showpets.do?id=%s", request.getContextPath(),
+					request.getParameter("id"))).forward(request, response);
+
+			}
+		}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		User user = storage.getUserById(request.getParameter("id"));
 		int intPetId = Integer.valueOf(request.getParameter("petId"));
