@@ -34,7 +34,7 @@ public class AuthFilter implements Filter {
          */
         User user = (User) session.getAttribute("user");
 
-        if (req.getRequestURI().contains("login.do")) {
+        if (req.getRequestURI().contains("/login.do")) {
             chain.doFilter(request, response);
         } else if (session == null || user == null) {
             resp.sendRedirect(String.format("%s/login.do", req.getContextPath()));
@@ -44,11 +44,19 @@ public class AuthFilter implements Filter {
          * Use construction ((User) user) for define class User for field user
          */
         else if ("ROLE_USER".equals(user.getRole())) {
-            if (req.getRequestURI().contains("/users/showpets.do")) {
-                chain.doFilter(request, response);
-            } else {
-                ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
-            }
+            chain.doFilter(request, response);
+
+	        //if (req.getRequestURI().contains("/client")) {
+		    //    chain.doFilter(request, response);
+	        //} else {
+		    //    ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
+	        //}
+
+            //if (req.getRequestURI().contains("/users/showpets.do")) {
+            //    chain.doFilter(request, response);
+            //} else {
+            //    ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
+            //}
         } else {
             if ("ROLE_ADMIN".equals(user.getRole())) {
                 chain.doFilter(request, response);

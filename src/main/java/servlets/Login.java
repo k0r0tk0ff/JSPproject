@@ -80,7 +80,7 @@ public class Login extends HttpServlet {
             } else {
                  req.setAttribute("ownId", String.valueOf(user.getId()));
 
-                 resp.sendRedirect(String.format("%s/users/showpets.do?id=%s",
+                 resp.sendRedirect(String.format("%s/client/showpets.do?id=%s",
                      req.getContextPath(), String.valueOf(user.getId())));
             }
         } else {

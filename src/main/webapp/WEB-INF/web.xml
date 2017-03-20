@@ -92,6 +92,26 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         <url-pattern>/petdelete.do</url-pattern>
     </servlet-mapping>
 
+    <!--Section for user`s request-->
+    <servlet>
+        <servlet-name>DelPetForClient</servlet-name>
+        <servlet-class>servlets.DelPetForUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DelPetForClient</servlet-name>
+        <url-pattern>/client/petdelete.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowUserPetsForUser</servlet-name>
+        <servlet-class>servlets.ShowUserPetsForUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowUserPetsForUser</servlet-name>
+        <url-pattern>/client/showpets.do</url-pattern>
+    </servlet-mapping>
+
+
 
 
 <!--    <servlet>

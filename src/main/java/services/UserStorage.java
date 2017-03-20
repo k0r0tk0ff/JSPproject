@@ -46,14 +46,14 @@ public class UserStorage {
         user.addPet(new Pet(0, user.petId.incrementAndGet(), "cat", "Markiz"));
         this.users.add(user);
 
-        User user2 = new User();
-        user2.setEmail("user2@mail.ru");
-        user2.setId(2);
-        user2.setLogin("a");
-        user2.setRole("ROLE_ADMIN");
-        user2.setPassword("a");
-        user2.addPet(new Pet(0, user.petId.incrementAndGet(), "cat", "Murka"));
-        this.users.add(user2);
+        User anotherUser = new User();
+        anotherUser.setEmail("anotherUser@mail.ru");
+        anotherUser.setId(2);
+        anotherUser.setLogin("a");
+        anotherUser.setRole("ROLE_ADMIN");
+        anotherUser.setPassword("a");
+        anotherUser.addPet(new Pet(0, anotherUser.petId.incrementAndGet(), "cat", "Murka"));
+        this.users.add(anotherUser);
     }
 
     private static final UserStorage INSTANCE = new UserStorage();
