@@ -55,9 +55,14 @@
 <%--<div class="container">
     <a href="${pageContext.servletContext.contextPath}/users/addpet.do?id=${user.id}">AddPet</a>
 </div>--%>
-<form action="${pageContext.request.contextPath}/users/addpet.do?id=${ownId}" method="post">
+<%--
+<form action="${pageContext.request.contextPath}/client/addpet.do?id=${ownId}" method="post">
     <input type="submit" class="btn btn-info" value="Add Pet">
 </form>
+--%>
+<div class="container">
+<a href="${pageContext.servletContext.contextPath}/client/addpet.do?id=${ownId}">AddPet</a>
+</div>
 <br/>
 </body>
 </html>

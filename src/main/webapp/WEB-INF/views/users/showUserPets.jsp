@@ -29,7 +29,7 @@
 <!-- Bootstrap table-->
 <div class="container">
  <table class="table table-striped">
-     <h2> SessionID = <c:out value="${session.getId()}"></c:out></h2>
+     <%--<h2> SessionID = <c:out value="${session.getId()}"></c:out></h2>--%>
      <thead>
      <tr>
          <td>Pet`s Id</td>
@@ -56,8 +56,11 @@
  <br/>
 </div>
 <div class="container">
- <a href='/login.do' class="btn btn-info" role="button">Main page</a>
- <%--<a href='/login.do?id=${ownId}' class="btn btn-info" role="button">Main page</a>--%>
+ <%--<a href='/login.do' class="btn btn-info" role="button">Main page</a>--%>
+ <a href='/users/UsersView.do' class="btn btn-info" role="button">Main page</a>
+<%--    <form action="/users/UsersView.do" method="post">
+        <input type="submit" class="btn btn-info" value="Main page">
+    </form>--%>
 </div>
 <br/>
 </body>

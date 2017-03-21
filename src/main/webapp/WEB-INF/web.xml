@@ -111,6 +111,15 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         <url-pattern>/client/showpets.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddPetForUser</servlet-name>
+        <servlet-class>servlets.client.AddPetForUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPetForUser</servlet-name>
+        <url-pattern>/client/addpet.do</url-pattern>
+    </servlet-mapping>
+
 
 
 

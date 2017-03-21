@@ -61,7 +61,7 @@ public class UsersController extends HttpServlet  {
         response.setContentType("text/html");
 
 
-
+        if (request.getParameter("login") != "" || request.getParameter("password") != "" ) {
         User newUser = new User();
         newUser.setEmail(request.getParameter("email"));
         newUser.setLogin(request.getParameter("login"));
@@ -69,6 +69,10 @@ public class UsersController extends HttpServlet  {
         newUser.setPassword(request.getParameter("password"));
         newUser.setRole(request.getParameter("role"));
         storage.getInstance().add(newUser);
+            response.sendRedirect(String.format("%s/users/UsersView.do",request.getContextPath()));
+        }   else {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
+        }
 
         /*		HttpSession session = request.getSession(true);
 
@@ -78,6 +82,6 @@ public class UsersController extends HttpServlet  {
         //response.sendRedirect(String.format("%s/users/showpets.do?id=%s",
         //        request.getContextPath(), String.valueOf(user.getId())));
 
-        response.sendRedirect(String.format("%s/users/UsersView.do",request.getContextPath()));
+        //response.sendRedirect(String.format("%s/users/UsersView.do",request.getContextPath()));
     }
 }

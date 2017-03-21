@@ -46,7 +46,7 @@
     <!-- Bootstrap table-->
     <div class="container">
         <h2>Pet`s clinic customer</h2>
-        <h2> SessionID = <c:out value="${session.getId()}"></c:out></h2>
+        <%--<h2> SessionID = <c:out value="${session.getId()}"></c:out></h2>--%>
         <table class="table table-striped">
             <thead>
             <tr>
