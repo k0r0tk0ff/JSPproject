@@ -2,7 +2,7 @@ package servlets;
 
 import models.User;
 import org.junit.Test;
-import services.UserStorage;
+import services.MemoryStorage;
 import servlets.admin.UsersController;
 
 import javax.servlet.ServletException;
@@ -48,8 +48,8 @@ public class UsersControllerTest {
 
         usersController.doPost(request, response);
 
-        assertThat("root", equalTo(UserStorage.getInstance().getAll().iterator().next().getLogin()));
-        assertThat(UserStorage.getInstance().getAll().iterator().next().getLogin(), is("root"));
+        assertThat("root", equalTo(MemoryStorage.getInstance().getAll().iterator().next().getLogin()));
+        assertThat(MemoryStorage.getInstance().getAll().iterator().next().getLogin(), is("root"));
 
         /**.
          * Compare post`s values of response and save fields of created user.

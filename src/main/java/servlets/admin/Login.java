@@ -2,7 +2,7 @@ package servlets.admin;
 
 import models.User;
 import org.slf4j.Logger;
-import services.UserStorage;
+import services.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +22,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class Login extends HttpServlet {
     private static final Logger log = getLogger(Login.class);
-    private final UserStorage userStorage = UserStorage.getInstance();
+    private final MemoryStorage memoryStorage = MemoryStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
          */
 
         req.getRequestDispatcher("login.jsp").forward(req, resp);
-/*        User user = userStorage.getUserById(req.getParameter("id"));
+/*        User user = memoryStorage.getUserById(req.getParameter("id"));
 
         HttpSession session = req.getSession();
         session.setAttribute("user", user);
@@ -64,9 +64,9 @@ public class Login extends HttpServlet {
         /**
          * Bind parameter "users" for access to database with users
          */
-        req.setAttribute("users", userStorage.getAll());
+        req.setAttribute("users", memoryStorage.getAll());
 
-        Optional<User> result = this.userStorage.findByCredentional(req.getParameter("username"),
+        Optional<User> result = this.memoryStorage.findByCredentional(req.getParameter("username"),
                 req.getParameter("password"));
 
         if (result.isPresent()) {

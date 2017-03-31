@@ -16,9 +16,9 @@ import static org.slf4j.LoggerFactory.getLogger;
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
-public class UserStorage implements Storage{
+public class MemoryStorage implements Storage{
 
-     private static final org.slf4j.Logger Log = getLogger(UserStorage.class);
+     private static final org.slf4j.Logger Log = getLogger(MemoryStorage.class);
 
      private final CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
 
@@ -32,7 +32,7 @@ public class UserStorage implements Storage{
      * Use singletone conception -
      * https://habrahabr.ru/post/27108/
      */
-    public UserStorage() {
+    public MemoryStorage() {
         User root = new User();
         root.setEmail("rootmail@mail.ru");
         root.setId(0);
@@ -79,9 +79,9 @@ public class UserStorage implements Storage{
         this.users.add(rvkalau1);
     }
 
-    private static final UserStorage INSTANCE = new UserStorage();
+    private static final MemoryStorage INSTANCE = new MemoryStorage();
 
-    public static UserStorage getInstance() {
+    public static MemoryStorage getInstance() {
         return INSTANCE;
     }
 

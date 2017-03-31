@@ -1,8 +1,5 @@
 package servlets.admin;
 
-import models.User;
-import services.UserStorage;
-
 /**
  * Add servlet`s dependencies to programm`s logic
  */
@@ -33,7 +30,7 @@ public class JsonController extends HttpServlet {
 /*    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserStorage.getInstance().add(
+        MemoryStorage.getInstance().add(
                 new User(request.getParameter("login"), "",
                         "", "")
         );

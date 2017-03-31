@@ -1,7 +1,7 @@
 package servlets.client;
 
 import models.User;
-import services.UserStorage;
+import services.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class ShowUserPetsForUser extends HttpServlet {
 
-	private UserStorage storage = UserStorage.getInstance();
+	private MemoryStorage storage = MemoryStorage.getInstance();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

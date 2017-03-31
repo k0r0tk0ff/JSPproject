@@ -10,7 +10,7 @@ import models.User;
  * Work with MVC`s
  * Add controller
  */
-import services.UserStorage;
+import services.MemoryStorage;
 
 /**.
  * Add servlet`s dependencies to programm`s logic
@@ -19,7 +19,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Add another dependencies;
@@ -36,7 +35,7 @@ public class UsersController extends HttpServlet  {
      /**
      * Add storage of users
      */
-    private final UserStorage storage = UserStorage.getInstance();
+    private final MemoryStorage storage = MemoryStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
