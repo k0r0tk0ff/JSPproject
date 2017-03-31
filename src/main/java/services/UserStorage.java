@@ -16,7 +16,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
-public class UserStorage {
+public class UserStorage implements Storage{
 
      private static final org.slf4j.Logger Log = getLogger(UserStorage.class);
 
@@ -123,13 +123,6 @@ public class UserStorage {
     public void deleteUser(User user) {
         this.users.remove(user);
     }
-
-    /**.
-     * User findByCridentional(String username, String password) use in login page
-     *
-     * @param username - entered username
-     * @param password - entered password
-     */
 
     public Optional<User>  findByCredentional(String username, String password) {
 
