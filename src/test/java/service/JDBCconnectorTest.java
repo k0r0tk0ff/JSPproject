@@ -15,15 +15,7 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class JDBCconnectorTest {
     @Test
-    public void getInstance() throws Exception {
-    }
-
-    @Test
-    public void getValue() throws Exception {
-    }
-
-    @Test
-    public void JDBCconnectorTestToDB() throws Exception {
+    public void CheckForReadPropertiesFile() throws Exception {
 
         /**.
          *  Test load settings from file
@@ -31,9 +23,12 @@ public class JDBCconnectorTest {
          */
         Settings settings = Settings.getInstance();
         assertThat(settings.getValue("jdbc.username"), is("postgres"));
+    }
 
+    @Test
+    public void JDBCconnectorTestToDB() throws Exception {
 
-        /**.
+         /**.
          *  Check for install JDBC driver
          */
         System.out.println("--- PostgreSQL JDBC Connection Testing ----");
