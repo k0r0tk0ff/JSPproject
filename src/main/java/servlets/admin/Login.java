@@ -2,7 +2,7 @@ package servlets.admin;
 
 import models.User;
 import org.slf4j.Logger;
-import services.MemoryStorage;
+import storage.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

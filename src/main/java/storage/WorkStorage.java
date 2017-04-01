@@ -1,4 +1,4 @@
-package services;
+package storage;
 
 import models.User;
 
@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Created by user on 3/31/2017.
+ * Selector of storage -
+ * data save in memory or in DB
  */
 public class WorkStorage implements Storage {
 

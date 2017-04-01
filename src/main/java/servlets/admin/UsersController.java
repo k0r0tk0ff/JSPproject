@@ -10,7 +10,7 @@ import models.User;
  * Work with MVC`s
  * Add controller
  */
-import services.MemoryStorage;
+import storage.MemoryStorage;
 
 /**.
  * Add servlet`s dependencies to programm`s logic

@@ -1,7 +1,7 @@
 package servlets.admin;
 
 import models.User;
-import services.MemoryStorage;
+import storage.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

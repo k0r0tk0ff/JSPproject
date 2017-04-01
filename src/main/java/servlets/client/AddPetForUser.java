@@ -2,7 +2,7 @@ package servlets.client;
 
 import models.Pet;
 import models.User;
-import services.MemoryStorage;
+import storage.MemoryStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

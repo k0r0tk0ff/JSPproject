@@ -1,4 +1,4 @@
-package services;
+package storage;
 
 import models.Pet;
 import models.User;
@@ -16,7 +16,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * @author Petr Arsentev
  * site - http://job4j.ru/
  */
-public class MemoryStorage implements Storage{
+public class MemoryStorage implements Storage {
 
      private static final org.slf4j.Logger Log = getLogger(MemoryStorage.class);
 
