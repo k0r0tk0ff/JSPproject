@@ -18,18 +18,24 @@ import service.Settings;
 
 public class JDBCstorage implements Storage {
         
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    Settings settings = null;
+    private Connection connection = null;
+    private PreparedStatement preparedStatement;
+    private Settings settings;
 
     public JDBCstorage() throws SQLException {
-        Settings settings = Settings.getInstance();
+        final Settings settings = Settings.getInstance();
 
-        final Connection testConnectionOne = DriverManager.getConnection(
-        settings.getValue("jdbc.url"),
-        settings.getValue("jdbc.username"),
-        settings.getValue("jdbc.password"));
-        final Statement statement = connection.createStatement();
+        try {
+            this.connection = DriverManager.getConnection(
+                    settings.getValue("jdbc.url"),
+                    settings.getValue("jdbc.username"),
+                    settings.getValue("jdbc.password"));
+        } catch (SQLException sqlError) {
+            throw new IllegalStateException(sqlError);
+        }
+        //final Statement statement = connection.createStatement();
+        preparedStatement = null;
+        this.settings = null;
     }
 
     @Override
@@ -58,21 +64,23 @@ public class JDBCstorage implements Storage {
 
         final String prepareSqlQuery = "SELECT * FROM clients";
 
-        preparedStatement = connection.prepareStatement(prepareSqlQuery);
+        try {
+            preparedStatement = connection.prepareStatement(prepareSqlQuery);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-        while(resultSet.next()){
-            users.add(new User
-               (
-                    resultSet.getInt("id"),
-                    resultSet.getString("name")
-               )
-            );
+            while(resultSet.next()){
+                users.add(new User
+                    (   resultSet.getInt("id"),
+                          resultSet.getString("name")
+                    )
+                );
+            }
+
+        } catch (SQLException sqlError) {
+            sqlError.printStackTrace();
         }
-
-        connection.close();
-
+        // connection.close();
         return users;
     }
 
