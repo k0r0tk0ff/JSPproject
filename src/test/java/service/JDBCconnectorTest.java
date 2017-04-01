@@ -1,10 +1,11 @@
 package service;
 
+import models.User;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -66,4 +67,63 @@ public class JDBCconnectorTest {
         }
     }
 
+    @Test
+    public void ConnectToDbAndGetSimpleSqlQuery () throws SQLException {
+
+        List<User> userList = new ArrayList<>();
+
+        Settings settings = Settings.getInstance();
+
+        final Connection testConnectionOne = DriverManager.getConnection(
+                settings.getValue("jdbc.url"),
+                settings.getValue("jdbc.username"),
+                settings.getValue("jdbc.password"));
+
+        final Statement statement = testConnectionOne.createStatement();
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM clients") ;
+
+        System.out.print("id           name");
+
+
+        while (resultSet.next()) {
+            System.out.print("\n" + resultSet.getInt("id"));
+            System.out.print("            " + resultSet.getString("name"));
+
+        }
+        testConnectionOne.close();
+    }
+
+    @Test
+    public void ConnectToDbUsePreparedStatement () throws SQLException {
+
+        // Use https://habrahabr.ru/sandbox/41444/
+
+        Settings settings = Settings.getInstance();
+
+        final Connection testConnectionOne = DriverManager.getConnection(
+                settings.getValue("jdbc.url"),
+                settings.getValue("jdbc.username"),
+                settings.getValue("jdbc.password"));
+
+        final Statement statement = testConnectionOne.createStatement();
+
+        PreparedStatement preparedStatement = null;
+
+        String prepareSqlQuery = "SELECT * FROM clients";
+
+        //preparedStatement = testConnectionOne.prepareStatement("SELECT * FROM clients");
+        preparedStatement = testConnectionOne.prepareStatement(prepareSqlQuery);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        System.out.print("id           name");
+
+        while (resultSet.next()) {
+            System.out.print("\n" + resultSet.getInt("id"));
+            System.out.print("            " + resultSet.getString("name"));
+
+        }
+        testConnectionOne.close();
+    }
 }
