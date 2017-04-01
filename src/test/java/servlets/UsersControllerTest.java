@@ -2,7 +2,7 @@ package servlets;
 
 import models.User;
 import org.junit.Test;
-import services.MemoryStorage;
+import storage.MemoryStorage;
 import servlets.admin.UsersController;
 
 import javax.servlet.ServletException;

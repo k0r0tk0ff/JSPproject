@@ -1,10 +1,14 @@
 package storage;
 
-import models.User;
-import org.apache.maven.settings.Settings;
 
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Import local packages.
+ */
+import models.User;
+import service.Settings;
 
 /**
  * Storage, where data is saved in DB
@@ -12,8 +16,8 @@ import java.util.Optional;
 
 public class JDBCstorage implements Storage {
 
-    public JDBCstorage {
-        final Settings settings = settings.getInstanse();
+    public JDBCstorage() {
+        Settings settings = Settings.getInstance();
     }
 
 
