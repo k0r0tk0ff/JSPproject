@@ -56,6 +56,6 @@ public interface Storage {
      *
      *  Get a user from database by username and password
      */
-    Optional<User> findByCredentional(String username, String password);
+    Optional<User> findByCredentionals(String username, String password);
 
 }

@@ -124,7 +124,7 @@ public class MemoryStorage implements Storage {
         this.users.remove(user);
     }
 
-    public Optional<User>  findByCredentional(String username, String password) {
+    public Optional<User>  findByCredentionals(String username, String password) {
 
         Optional<User> userForReturn = Optional.empty();
 

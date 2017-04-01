@@ -66,7 +66,7 @@ public class Login extends HttpServlet {
          */
         req.setAttribute("users", memoryStorage.getAll());
 
-        Optional<User> result = this.memoryStorage.findByCredentional(req.getParameter("username"),
+        Optional<User> result = this.memoryStorage.findByCredentionals(req.getParameter("username"),
                 req.getParameter("password"));
 
         if (result.isPresent()) {

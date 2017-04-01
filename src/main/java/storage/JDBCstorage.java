@@ -95,7 +95,7 @@ public class JDBCstorage implements Storage {
     }
 
     @Override
-    public Optional<User> findByCredentional(String username, String password) {
+    public Optional<User> findByCredentionals(String username, String password) {
         return null;
     }
 }
