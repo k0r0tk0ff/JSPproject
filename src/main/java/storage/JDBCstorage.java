@@ -1,9 +1,8 @@
 package storage;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,30 +16,22 @@ import service.Settings;
  * Storage, where data is saved in DB
  */
 
-public class JDBCstorage implements Storage throws ServletException,IOException {
+public class JDBCstorage implements Storage {
         
     Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    Settings settings = null;
 
-    public JDBCstorage() {
+    public JDBCstorage() throws SQLException {
         Settings settings = Settings.getInstance();
-    }
 
-    final Connection connection=DriverManager.getConnection(
+        final Connection testConnectionOne = DriverManager.getConnection(
         settings.getValue("jdbc.url"),
         settings.getValue("jdbc.username"),
         settings.getValue("jdbc.password"));
+        final Statement statement = connection.createStatement();
+    }
 
-    final Statement statement=connection.createStatement();
-
-    ResultSet resultSet=statement.executeQuery("SELECT * FROM clients");
-
-    while(resultSet.next()){
-        System.out.print("\n"+resultSet.getInt("id"));
-        System.out.print("            "+resultSet.getString("name"));
-        }
-        connection.close();
-    
-    
     @Override
     public void add(User user) {
 
@@ -62,8 +53,27 @@ public class JDBCstorage implements Storage throws ServletException,IOException 
     }
 
     @Override
-    public List<User> getAll() {
-                
+    public List<User> getAll() throws SQLException {
+        final List <User> users = new ArrayList<>();
+
+        final String prepareSqlQuery = "SELECT * FROM clients";
+
+        preparedStatement = connection.prepareStatement(prepareSqlQuery);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()){
+            users.add(new User
+               (
+                    resultSet.getInt("id"),
+                    resultSet.getString("name")
+               )
+            );
+        }
+
+        connection.close();
+
+        return users;
     }
 
     @Override

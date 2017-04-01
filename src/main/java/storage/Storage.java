@@ -2,6 +2,7 @@ package storage;
 
 import models.User;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +36,7 @@ public interface Storage {
     /**
      * Describe how to get all users from database.
      */
-    List<User> getAll();
+    List<User> getAll() throws SQLException;
 
     /**
      * Describe how to update a user from database.

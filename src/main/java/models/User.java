@@ -38,6 +38,12 @@ public class User {
         this.id = id;
     }
 
+    public User(int id, String login) {
+        this();
+        this.id = id;
+        this.login = login;
+    }
+
     public String getLogin() {
         return this.login;
     }
