@@ -21,6 +21,7 @@ public class JDBCstorage implements Storage {
     private Connection connection = null;
     private PreparedStatement preparedStatement;
     private Settings settings;
+    final List <User> users = new ArrayList<>();
 
     public JDBCstorage() throws SQLException {
         final Settings settings = Settings.getInstance();
@@ -36,6 +37,7 @@ public class JDBCstorage implements Storage {
         //final Statement statement = connection.createStatement();
         preparedStatement = null;
         this.settings = null;
+
     }
 
     @Override
@@ -60,7 +62,7 @@ public class JDBCstorage implements Storage {
 
     @Override
     public List<User> getAll() throws SQLException {
-        final List <User> users = new ArrayList<>();
+
 
         final String prepareSqlQuery = "SELECT * FROM clients";
 
@@ -96,6 +98,15 @@ public class JDBCstorage implements Storage {
 
     @Override
     public Optional<User> findByCredentionals(String username, String password) {
-        return null;
+
+        Optional<User> userForReturn = Optional.empty();
+
+        for (User findUser: this.users) {
+            if(findUser.getLogin().equals(username)) {
+                if (findUser.getPassword().equals(password)) userForReturn = Optional.of(findUser);
+            }
+        }
+        return userForReturn;
     }
+
 }

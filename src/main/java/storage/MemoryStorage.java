@@ -33,7 +33,7 @@ public class MemoryStorage implements Storage {
      * https://habrahabr.ru/post/27108/
      */
     public MemoryStorage() {
-       /* User root = new User();
+        User root = new User();
         root.setEmail("rootmail@mail.ru");
         root.setId(0);
         root.setLogin("root");
@@ -76,7 +76,7 @@ public class MemoryStorage implements Storage {
         rvkalau1.setRole("ROLE_ADMIN");
         rvkalau1.setPassword("a");
         rvkalau1.addPet(new Pet(0, rvkalau1.petId.incrementAndGet(), "cat", "Umka"));
-        this.users.add(rvkalau1);*/
+        this.users.add(rvkalau1);
     }
 
     private static final MemoryStorage INSTANCE = new MemoryStorage();

@@ -24,21 +24,21 @@ public class WorkStorage implements Storage {
     public static WorkStorage getInstance() {return INSTANCE;}
 
     @Override
-    public void add(User user) {
+    public void add(User user) { storage.add(user);
     }
 
     @Override
-    public void delUserById(int id) {
+    public void delUserById(int id) { storage.delUserById(id);
     }
 
     @Override
     public User getUserById(String id) {
-        return null;
+        return storage.getUserById(id);
     }
 
     @Override
     public User getUserByLogin(String loginForFind) {
-        return null;
+        return storage.getUserByLogin(loginForFind);
     }
 
     @Override
@@ -47,15 +47,15 @@ public class WorkStorage implements Storage {
     }
 
     @Override
-    public void update(User user) {
+    public void update(User user) { storage.update(user);
     }
 
     @Override
-    public void deleteUser(User user) {
+    public void deleteUser(User user) { storage.deleteUser(user);
     }
 
     @Override
     public Optional<User> findByCredentionals(String username, String password) {
-        return null;
+         return null;
     }
 }
